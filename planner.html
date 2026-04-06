@@ -209,14 +209,15 @@
 
 <div class="container">
 
+
   <header>
-    <div class="logo">TikTok<span>Growth</span> 🚀</div>
-    <p>Seu plano completo de crescimento e monetização — marque cada etapa concluída</p>
+    <div class="logo" data-i18n="logo">TikTok<span>Growth</span> 🚀</div>
+    <p data-i18n="subtitle">Seu plano completo de crescimento e monetização — marque cada etapa concluída</p>
   </header>
 
   <div class="overall-progress">
     <div class="progress-text">
-      <h3>Progresso Geral</h3>
+      <h3 data-i18n="overall_progress">Progresso Geral</h3>
       <div class="count" id="overall-count">0 <span>/ 0 tarefas</span></div>
     </div>
     <div class="progress-bar-wrap">
@@ -232,8 +233,8 @@
     <div class="section-header" onclick="toggleSection('sec-1')">
       <div class="section-icon icon-pink">📈</div>
       <div class="section-title">
-        <h2>Fase 1 — Crescer para 5.000 Seguidores</h2>
-        <p>Estratégias orgânicas e virais do zero</p>
+        <h2 data-i18n="phase1_title">Fase 1 — Crescer seu número de Seguidores</h2>
+        <p data-i18n="phase1_desc">Estratégias orgânicas e virais do zero</p>
       </div>
       <span class="section-badge" id="badge-sec-1">0 / 0</span>
       <span class="chevron">▼</span>
@@ -404,8 +405,8 @@
     <div class="section-header" onclick="toggleSection('sec-2')">
       <div class="section-icon icon-cyan">🛒</div>
       <div class="section-title">
-        <h2>Fase 2 — TikTok Shop Afiliado</h2>
-        <p>Cadastro, escolha de produtos e inserção nos vídeos</p>
+        <h2 data-i18n="phase2_title">Fase 2 — TikTok Shop Afiliado</h2>
+        <p data-i18n="phase2_desc">Cadastro, escolha de produtos e inserção nos vídeos</p>
       </div>
       <span class="section-badge" id="badge-sec-2">0 / 0</span>
       <span class="chevron">▼</span>
@@ -533,8 +534,8 @@
     <div class="section-header" onclick="toggleSection('sec-3')">
       <div class="section-icon icon-purple">🎬</div>
       <div class="section-title">
-        <h2>Fase 3 — Conteúdo Viral que Vende</h2>
-        <p>Formatos, roteiros, CTAs e trends para monetização</p>
+        <h2 data-i18n="phase3_title">Fase 3 — Conteúdo Viral que Vende</h2>
+        <p data-i18n="phase3_desc">Formatos, roteiros, CTAs e trends para monetização</p>
       </div>
       <span class="section-badge" id="badge-sec-3">0 / 0</span>
       <span class="chevron">▼</span>
@@ -685,18 +686,104 @@
 <div class="celebration" id="celebration">
   <div class="celebration-card">
     <div style="font-size:3rem;margin-bottom:12px">🎉</div>
-    <h2>Plano Concluído!</h2>
-    <p>Você completou todas as tarefas.<br>Agora é só executar e crescer! 🚀</p>
-    <button class="btn-close" onclick="hideCelebration()">Continuar</button>
+    <h2 data-i18n="celebration_title">Plano Concluído!</h2>
+    <p data-i18n="celebration_body">Você completou todas as tarefas.<br>Agora é só executar e crescer! 🚀</p>
+    <button class="btn-close" onclick="hideCelebration()" data-i18n="celebration_btn">Continuar</button>
   </div>
 </div>
 
-<footer>
-  <div class="badge"><div class="dot-live"></div> Progresso salvo automaticamente</div>
-  <div>Feito para criadores que levam o crescimento a sério 🖤</div>
-</footer>
+  <footer>
+    <div class="badge"><div class="dot-live"></div> <span data-i18n="footer_progress">Progresso salvo automaticamente</span></div>
+    <div data-i18n="footer_made">Feito para criadores que levam o crescimento a sério 🖤</div>
+  </footer>
 
 <script>
+  // ── Controle de acesso ──────────────────────────────────────────
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('redirect_status') === 'succeeded') {
+      // Vindo do Stripe após pagamento — grava acesso e limpa a URL
+      localStorage.setItem('tiktok-paid', 'true');
+      history.replaceState(null, '', window.location.pathname);
+    } else if (localStorage.getItem('tiktok-paid') !== 'true') {
+      // Sem pagamento registrado — volta para a página de vendas
+      window.location.replace('index.html');
+    }
+  })();
+  // ───────────────────────────────────────────────────────────────
+
+  // Traduções básicas para 3 idiomas (exemplo)
+  const translations = {
+    'en': {
+      logo: 'TikTok<span>Growth</span> 🚀',
+      subtitle: 'Your complete growth and monetization plan — check off each completed step',
+      overall_progress: 'Overall Progress',
+      tasks_word: 'tasks',
+      phase1_title: 'Phase 1 — Grow Your Followers',
+      phase1_desc: 'Organic and viral strategies from scratch',
+      phase2_title: 'Phase 2 — TikTok Shop Affiliate',
+      phase2_desc: 'Registration, product selection and video integration',
+      phase3_title: 'Phase 3 — Viral Content That Sells',
+      phase3_desc: 'Formats, scripts, CTAs and trends for monetization',
+      celebration_title: 'Plan Complete!',
+      celebration_body: 'You completed all tasks.<br>Now just execute and grow! 🚀',
+      celebration_btn: 'Continue',
+      footer_progress: 'Progress saved automatically',
+      footer_made: 'Made for creators who take growth seriously 🖤',
+    },
+    'fr': {
+      logo: 'TikTok<span>Croissance</span> 🚀',
+      subtitle: 'Votre plan complet de croissance et de monétisation — cochez chaque étape terminée',
+      overall_progress: 'Progression Générale',
+      tasks_word: 'tâches',
+      phase1_title: 'Phase 1 — Augmenter vos abonnés',
+      phase1_desc: 'Stratégies organiques et virales à partir de zéro',
+      phase2_title: 'Phase 2 — TikTok Shop Affilié',
+      phase2_desc: 'Inscription, sélection de produits et intégration vidéo',
+      phase3_title: 'Phase 3 — Contenu Viral qui Vend',
+      phase3_desc: 'Formats, scripts, CTAs et tendances pour la monétisation',
+      celebration_title: 'Plan Terminé !',
+      celebration_body: 'Vous avez complété toutes les tâches.<br>Maintenant exécutez et grandissez ! 🚀',
+      celebration_btn: 'Continuer',
+      footer_progress: 'Progression enregistrée automatiquement',
+      footer_made: 'Fait pour les créateurs qui prennent la croissance au sérieux 🖤',
+    },
+    'pt': {
+      logo: 'TikTok<span>Growth</span> 🚀',
+      subtitle: 'Seu plano completo de crescimento e monetização — marque cada etapa concluída',
+      overall_progress: 'Progresso Geral',
+      tasks_word: 'tarefas',
+      phase1_title: 'Fase 1 — Crescer seu número de Seguidores',
+      phase1_desc: 'Estratégias orgânicas e virais do zero',
+      phase2_title: 'Fase 2 — TikTok Shop Afiliado',
+      phase2_desc: 'Cadastro, escolha de produtos e inserção nos vídeos',
+      phase3_title: 'Fase 3 — Conteúdo Viral que Vende',
+      phase3_desc: 'Formatos, roteiros, CTAs e trends para monetização',
+      celebration_title: 'Plano Concluído!',
+      celebration_body: 'Você completou todas as tarefas.<br>Agora é só executar e crescer! 🚀',
+      celebration_btn: 'Continuar',
+      footer_progress: 'Progresso salvo automaticamente',
+      footer_made: 'Feito para criadores que levam o crescimento a sério 🖤',
+    }
+  };
+
+  function getLang() {
+    const lang = navigator.language || navigator.userLanguage || 'pt';
+    if (lang.startsWith('en')) return 'en';
+    if (lang.startsWith('fr')) return 'fr';
+    return 'pt';
+  }
+
+  function applyTranslations() {
+    const lang = getLang();
+    const dict = translations[lang] || translations['pt'];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key]) el.innerHTML = dict[key];
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', applyTranslations);
   const STORAGE_KEY = 'tiktok-growth-v1';
 
   function loadState() {
@@ -748,8 +835,9 @@
     const pct = tt ? Math.round(td / tt * 100) : 0;
     document.getElementById('overall-bar').style.width  = pct + '%';
     document.getElementById('overall-percent').textContent = pct + '%';
+    const tasksWord = (translations[getLang()] || translations['pt']).tasks_word;
     document.getElementById('overall-count').innerHTML  =
-      td + ' <span>/ ' + tt + ' tarefas</span>';
+      td + ' <span>/ ' + tt + ' ' + tasksWord + '</span>';
     if (pct === 100 && tt > 0) showCelebration();
   }
 

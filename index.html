@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TikTok Growth Planner 🚀 — Plano Completo por $3</title>
+  <title>TikTok Growth Planner 🚀 — Plano Completo por $4</title>
   <style>
     :root {
       --pink: #ff2d55;
@@ -309,7 +309,7 @@
         <p>Roteiros, formatos, CTAs e trends para monetizar</p>
       </div>
     </div>
-    <div class="preview-locked">🔒 Desbloqueie por apenas $3</div>
+    <div class="preview-locked">🔒 Desbloqueie por apenas $4</div>
   </div>
 
   <!-- Benefícios -->
@@ -365,8 +365,104 @@
 </div>
 
 <footer>
-  © 2026 TikTokGrowth · Feito para criadores que levam o crescimento a sério 🖤
+  © 2026 TikTokGrowth · <span id="footer-tagline">Feito para criadores que levam o crescimento a sério 🖤</span>
 </footer>
 
+<script>
+  // Se já pagou, vai direto pro planner
+  if (localStorage.getItem('tiktok-paid') === 'true') {
+    window.location.replace('planner.html');
+  }
+
+  const i18n = {
+    en: {
+      badge: '🔥 Special offer',
+      headline: 'The step-by-step plan to <strong>grow from zero to 5k followers</strong> and monetize with TikTok Shop — all in one interactive checklist.',
+      preview_label: 'What you will unlock',
+      phase1_h: 'Phase 1 — Grow to 5,000 Followers',
+      phase1_p: 'Niche, profile, frequency, sounds, trends and engagement',
+      phase2_h: 'Phase 2 — TikTok Shop Affiliate',
+      phase2_p: 'Registration, product selection and video integration',
+      phase3_h: 'Phase 3 — Viral Content That Sells',
+      phase3_p: 'Scripts, formats, CTAs and trends to monetize',
+      locked: '🔒 Unlock for only $4',
+      b1: '<strong>+40 tasks</strong> organized in 3 phases with real-time visual progress',
+      b2: 'Strategies for <strong>niche, algorithm, sounds and hashtags</strong> that work now',
+      b3: 'Complete guide to <strong>TikTok Shop Affiliate</strong> — from registration to first commission',
+      b4: '<strong>3-second hook formula</strong> to retain viewers and sell without looking like an ad',
+      b5: 'Progress <strong>saved automatically</strong> in your browser — resume where you left off',
+      b6: '<strong>Lifetime access</strong> — pay once, use forever',
+      price_old: 'From $19',
+      price_sub: 'one-time payment · immediate access',
+      btn: '🔓 Unlock now for $4',
+      guarantee: '7-day guarantee — no questions asked',
+      stripe: 'Secure payment via Stripe',
+      footer: 'Made for creators who take growth seriously 🖤',
+    },
+    fr: {
+      badge: '🔥 Offre spéciale',
+      headline: 'Le plan étape par étape pour <strong>passer de zéro à 5k abonnés</strong> et monétiser avec TikTok Shop — tout dans une checklist interactive.',
+      preview_label: 'Ce que vous allez débloquer',
+      phase1_h: 'Phase 1 — Atteindre 5 000 abonnés',
+      phase1_p: 'Niche, profil, fréquence, sons, tendances et engagement',
+      phase2_h: 'Phase 2 — TikTok Shop Affilié',
+      phase2_p: 'Inscription, sélection de produits et intégration vidéo',
+      phase3_h: 'Phase 3 — Contenu Viral qui Vend',
+      phase3_p: 'Scripts, formats, CTAs et tendances pour monétiser',
+      locked: '🔒 Débloquez pour seulement $4',
+      b1: '<strong>+40 tâches</strong> organisées en 3 phases avec progression visuelle en temps réel',
+      b2: 'Stratégies de <strong>niche, algorithme, sons et hashtags</strong> qui fonctionnent maintenant',
+      b3: 'Guide complet du <strong>TikTok Shop Affilié</strong> — de l\'inscription à la première commission',
+      b4: '<strong>Formule du crochet de 3 secondes</strong> pour retenir les spectateurs et vendre sans paraître publicitaire',
+      b5: 'Progression <strong>enregistrée automatiquement</strong> dans votre navigateur — reprenez où vous en étiez',
+      b6: '<strong>Accès à vie</strong> — payez une fois, utilisez pour toujours',
+      price_old: 'De $19',
+      price_sub: 'paiement unique · accès immédiat',
+      btn: '🔓 Débloquer maintenant pour $4',
+      guarantee: 'Garantie 7 jours — sans questions',
+      stripe: 'Paiement sécurisé via Stripe',
+      footer: 'Fait pour les créateurs qui prennent la croissance au sérieux 🖤',
+    },
+  };
+
+  function getLang() {
+    const l = navigator.language || 'pt';
+    if (l.startsWith('en')) return 'en';
+    if (l.startsWith('fr')) return 'fr';
+    return null; // PT is default (already in HTML)
+  }
+
+  function applyLang() {
+    const lang = getLang();
+    if (!lang) return; // PT already rendered
+    const t = i18n[lang];
+    document.querySelector('.badge-top').innerHTML = t.badge;
+    document.querySelector('.headline').innerHTML = t.headline;
+    document.querySelector('.preview-label').textContent = t.preview_label;
+    const phases = document.querySelectorAll('.preview-phase .phase-info');
+    phases[0].querySelector('h4').textContent = t.phase1_h;
+    phases[0].querySelector('p').textContent  = t.phase1_p;
+    phases[1].querySelector('h4').textContent = t.phase2_h;
+    phases[1].querySelector('p').textContent  = t.phase2_p;
+    phases[2].querySelector('h4').textContent = t.phase3_h;
+    phases[2].querySelector('p').textContent  = t.phase3_p;
+    document.querySelector('.preview-locked').textContent = t.locked;
+    const bullets = document.querySelectorAll('.benefits li span');
+    bullets[0].innerHTML = t.b1;
+    bullets[1].innerHTML = t.b2;
+    bullets[2].innerHTML = t.b3;
+    bullets[3].innerHTML = t.b4;
+    bullets[4].innerHTML = t.b5;
+    bullets[5].innerHTML = t.b6;
+    document.querySelector('.price-old').textContent = t.price_old;
+    document.querySelector('.price-sub').textContent = t.price_sub;
+    document.querySelector('.btn-buy').textContent   = t.btn;
+    document.querySelector('.guarantee').innerHTML   = '<span>🛡️</span> ' + t.guarantee;
+    document.querySelector('.social-proof').innerHTML = '<span class="stars">★★★★★</span>&nbsp;' + t.stripe;
+    document.getElementById('footer-tagline').textContent = t.footer;
+  }
+
+  document.addEventListener('DOMContentLoaded', applyLang);
+</script>
 </body>
 </html>
