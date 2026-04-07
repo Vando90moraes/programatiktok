@@ -203,6 +203,22 @@
       .section-progress { padding: 14px 18px; }
       .tip-box { margin: 6px 18px 14px; }
     }
+
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body {
+        background: #010101 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      body::before { display: none; }
+      #beauty-float,
+      footer,
+      .celebration { display: none !important; }
+      .section { break-inside: avoid; page-break-inside: avoid; }
+      .container { padding: 20px; }
+      header button { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -213,6 +229,21 @@
   <header>
     <div class="logo" data-i18n="logo">TikTok<span>Growth</span> 🚀</div>
     <p data-i18n="subtitle">Seu plano completo de crescimento e monetização — marque cada etapa concluída</p>
+    <button onclick="window.print()" style="
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      color: var(--text-muted);
+      padding: 9px 18px;
+      border-radius: 10px;
+      font-size: .8rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: .05em;
+    ">⬇ Baixar PDF</button>
   </header>
 
   <div class="overall-progress">
