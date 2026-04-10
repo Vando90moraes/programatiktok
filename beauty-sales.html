@@ -351,9 +351,15 @@
 <body>
 
 <script>
-  if (localStorage.getItem('beauty-paid') === 'true') {
-    window.location.replace('beauty.html');
-  }
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('redirect_status') === 'succeeded') {
+      localStorage.setItem('beauty-paid', 'true');
+      window.location.replace('beauty.html');
+    } else if (localStorage.getItem('beauty-paid') === 'true') {
+      window.location.replace('beauty.html');
+    }
+  })();
 </script>
 
 <div class="container">
