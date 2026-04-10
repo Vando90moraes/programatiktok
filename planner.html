@@ -764,56 +764,60 @@
     <div data-i18n="footer_made">Feito para criadores que levam o crescimento a sério 🖤</div>
   </footer>
 
-  <!-- Floating Beauty CTA -->
-  <div id="beauty-float" style="
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 999;
-    padding: 10px 12px 10px;
-    background: linear-gradient(to bottom, #1a1008 70%, transparent);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  ">
-    <a href="beauty-sales.html" style="
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: linear-gradient(135deg, #c9a84c, #f0cc70);
-      color: #0f0d0b;
-      text-decoration: none;
-      border-radius: 14px;
-      padding: 12px 16px;
-      box-shadow: 0 4px 24px rgba(201,168,76,.45);
-      animation: float-pulse 2.5s ease-in-out infinite;
-    ">
-      <span style="font-size: 1.5rem; line-height: 1; flex-shrink: 0;">💄</span>
-      <div style="flex: 1; min-width: 0;">
-        <div style="font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; opacity: .7; margin-bottom: 2px;">Próximo passo</div>
-        <div style="font-size: .92rem; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Beauty Affiliate Strategy — $7</div>
-      </div>
-      <span style="font-size: 1.2rem; flex-shrink: 0;">→</span>
-    </a>
-    <button onclick="document.getElementById('beauty-float').style.display='none'" style="
-      background: rgba(255,255,255,.1);
-      border: none;
-      color: white;
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      font-size: 1rem;
-      cursor: pointer;
-      flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-    ">✕</button>
-  </div>
   <style>
     @keyframes float-pulse {
-      0%, 100% { box-shadow: 0 4px 24px rgba(201,168,76,.45); }
-      50%       { box-shadow: 0 4px 36px rgba(201,168,76,.75); }
+      0%, 100% { box-shadow: 0 4px 20px rgba(201,168,76,.5); }
+      50%       { box-shadow: 0 4px 36px rgba(201,168,76,.85); }
     }
-    body { padding-top: 72px; padding-bottom: 0; }
   </style>
+  <script>
+    // Beauty banner — injected via JS to avoid any CSS stacking context issues on iOS
+    (function () {
+      var alreadyBought = localStorage.getItem('beauty-paid') === 'true';
+      var bar = document.createElement('div');
+      bar.id = 'beauty-float';
+      bar.style.cssText = [
+        'position:fixed',
+        'top:0','left:0','right:0',
+        'z-index:2147483647',
+        'display:flex',
+        'align-items:center',
+        'gap:10px',
+        'padding:10px 12px',
+        'background:linear-gradient(to bottom,#1a1008 80%,transparent)',
+        '-webkit-transform:translateZ(0)',
+        'transform:translateZ(0)'
+      ].join(';');
+
+      var href   = alreadyBought ? 'beauty.html' : 'beauty-sales.html';
+      var label  = alreadyBought ? 'Já tenho — Abrir Beauty Strategy' : 'Beauty Affiliate Strategy — $7';
+      var sublabel = alreadyBought ? 'Toque para acessar seu produto' : 'Próximo passo';
+
+      bar.innerHTML =
+        '<a href="' + href + '" style="' +
+          'flex:1;display:flex;align-items:center;gap:12px;' +
+          'background:linear-gradient(135deg,#c9a84c,#f0cc70);' +
+          'color:#0f0d0b;text-decoration:none;border-radius:14px;' +
+          'padding:12px 16px;animation:float-pulse 2.5s ease-in-out infinite;' +
+          '-webkit-transform:translateZ(0);transform:translateZ(0);' +
+        '">' +
+          '<span style="font-size:1.5rem;line-height:1;flex-shrink:0;">💄</span>' +
+          '<div style="flex:1;min-width:0;">' +
+            '<div style="font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;opacity:.7;margin-bottom:2px;">' + sublabel + '</div>' +
+            '<div style="font-size:.88rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + label + '</div>' +
+          '</div>' +
+          '<span style="font-size:1.2rem;flex-shrink:0;">→</span>' +
+        '</a>' +
+        '<button onclick="document.getElementById(\'beauty-float\').remove()" style="' +
+          'background:rgba(255,255,255,.15);border:none;color:white;' +
+          'width:36px;height:36px;border-radius:50%;font-size:1rem;' +
+          'cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;' +
+        '">✕</button>';
+
+      document.body.appendChild(bar);
+      document.body.style.paddingTop = '68px';
+    })();
+  </script>
 
 <script>
   // ── Controle de acesso ──────────────────────────────────────────
