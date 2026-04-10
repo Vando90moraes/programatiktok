@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dolphin Pro — Curso Completo Multi-Contas TikTok Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --accent: #00e5a0;
+    --accent2: #00b87d;
+    --accent-dim: rgba(0,229,160,0.12);
+    --accent-dim2: rgba(0,229,160,0.06);
+    --text: #f0f0f0;
+    --muted: #888;
+    --muted2: #555;
+    --danger: #ff4d4d;
+    --amber: #f59e0b;
+    --amber-dim: rgba(245,158,11,0.12);
+    --blue: #3b9eff;
+    --blue-dim: rgba(59,158,255,0.12);
+    --purple: #a78bfa;
+    --purple-dim: rgba(167,139,250,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  .header-meta { font-size: 13px; color: var(--muted); }
+  .header-meta span { color: var(--accent); font-weight: 500; }
+
+  /* HERO */
+  .hero {
+    padding: 56px 24px 40px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border: 1px solid rgba(0,229,160,0.2);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  /* PROGRESS BAR */
+  .progress-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 8px;
+  }
+  .progress-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+  }
+  .progress-label { font-size: 13px; color: var(--muted); }
+  .progress-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .progress-num small { font-size: 13px; color: var(--muted); font-family: 'DM Sans'; font-weight: 400; }
+  .bar-track {
+    height: 6px;
+    background: var(--surface2);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 100px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* MAIN */
+  .main { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* PHASE */
+  .phase {
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--surface);
+    transition: border-color 0.2s;
+  }
+  .phase:hover { border-color: var(--border2); }
+  .phase-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    cursor: pointer;
+    user-select: none;
+    gap: 12px;
+  }
+  .phase-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+  .phase-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .phase-icon.teal { background: var(--accent-dim); }
+  .phase-icon.amber { background: var(--amber-dim); }
+  .phase-icon.blue { background: var(--blue-dim); }
+  .phase-icon.purple { background: var(--purple-dim); }
+  .phase-info { min-width: 0; }
+  .phase-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .phase-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .phase-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .phase-pct {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted2);
+    min-width: 32px;
+    text-align: right;
+  }
+  .phase-pct.done { color: var(--accent); }
+  .chevron {
+    width: 18px;
+    height: 18px;
+    color: var(--muted2);
+    transition: transform 0.25s;
+  }
+  .phase.open .chevron { transform: rotate(180deg); }
+
+  /* PHASE BODY */
+  .phase-body { display: none; border-top: 1px solid var(--border); }
+  .phase.open .phase-body { display: block; }
+
+  /* SECTION */
+  .section { padding: 16px 20px; border-bottom: 1px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted2);
+    margin-bottom: 12px;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+
+  /* TASK */
+  .task {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.15s;
+    border-radius: 8px;
+    padding: 10px 8px;
+    margin: 0 -8px;
+  }
+  .task:last-child { border-bottom: none; }
+  .task:hover { background: var(--accent-dim2); }
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 1.5px solid var(--muted2);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    transition: all 0.2s;
+  }
+  .task.done .checkbox {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .checkmark {
+    display: none;
+    width: 11px;
+    height: 11px;
+  }
+  .task.done .checkmark { display: block; }
+  .task-text { flex: 1; }
+  .task-main {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+    transition: color 0.2s;
+  }
+  .task.done .task-main {
+    color: var(--muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--muted2);
+  }
+  .task-hint {
+    font-size: 12px;
+    color: var(--muted2);
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+
+  /* CALLOUT */
+  .callout {
+    margin: 14px 0 4px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+    background: var(--accent-dim2);
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .callout strong { color: var(--accent); }
+  .callout.amber { border-color: var(--amber); background: var(--amber-dim); }
+  .callout.amber strong { color: var(--amber); }
+  .callout.blue { border-color: var(--blue); background: var(--blue-dim); }
+  .callout.blue strong { color: var(--blue); }
+
+  /* MINI BAR */
+  .mini-bar {
+    height: 3px;
+    background: var(--surface2);
+    border-radius: 100px;
+    overflow: hidden;
+    margin: 14px 0 2px;
+  }
+  .mini-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 100px;
+    transition: width 0.4s;
+    width: 0%;
+  }
+  .mini-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted2);
+    margin-bottom: 14px;
+  }
+
+  /* CTA UPSELL */
+  .upsell {
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 28px 0 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .upsell-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+  .upsell-content { flex: 1; }
+  .upsell-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted2); margin-bottom: 6px; }
+  .upsell-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .upsell-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .upsell-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding: 9px 18px;
+    background: var(--accent);
+    color: #000;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .upsell-btn:hover { opacity: 0.85; }
+
+  /* COMPLETION */
+  .completion {
+    display: none;
+    text-align: center;
+    padding: 48px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-top: 12px;
+  }
+  .completion.show { display: block; }
+  .completion h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .completion p { font-size: 14px; color: var(--muted); }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 16px 24px 32px;
+    font-size: 12px;
+    color: var(--muted2);
+  }
+
+  @media (max-width: 520px) {
+    .upsell { flex-direction: column; gap: 12px; }
+    .hero h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get('key');
+    // Aceita chave própria do bonus ou qualquer produto comprado
+    if (key === 'bonus2026' || key === 'tkg2026' || key === 'beauty2026') {
+      localStorage.setItem('bonus-paid', 'true');
+      history.replaceState(null, '', window.location.pathname);
+    } else if (
+      localStorage.getItem('bonus-paid') !== 'true' &&
+      localStorage.getItem('tiktok-paid') !== 'true' &&
+      localStorage.getItem('beauty-paid') !== 'true'
+    ) {
+      window.location.replace('index.html');
+    }
+  })();
+</script>
+
+<header class="header">
+  <div class="logo"><span class="logo-dot"></span> Dolphin Pro</div>
+  <div class="header-meta">Progresso: <span id="hdr-pct">0%</span></div>
+</header>
+
+<section class="hero">
+  <div class="badge">🐬 Curso Completo</div>
+  <h1>Multi-contas TikTok Shop<br>com <em>Dolphin Anty</em></h1>
+  <p>Do zero ao sistema profissional de múltiplos perfis — sem ban, sem risco, com escala real. Siga cada etapa e transforme seu computador numa máquina de contas.</p>
+
+  <div class="progress-wrap">
+    <div class="progress-top">
+      <span class="progress-label">Progresso geral</span>
+      <div class="progress-num"><span id="done-count">0</span> / <span id="total-count">0</span> <small>tarefas</small></div>
+    </div>
+    <div class="bar-track"><div class="bar-fill" id="main-bar"></div></div>
+  </div>
+</section>
+
+<main class="main" id="main">
+
+  <!-- FASE 1 -->
+  <div class="phase open" data-phase="1">
+    <div class="phase-header" onclick="togglePhase(this)">
+      <div class="phase-left">
+        <div class="phase-icon teal">🛠️</div>
+        <div class="phase-info">
+          <div class="phase-title">Fase 1 — Instalação e Configuração</div>
+          <div class="phase-sub">Dolphin Anty do zero ao primeiro perfil rodando</div>
+        </div>
+      </div>
+      <div class="phase-right">
+        <div class="phase-pct" id="pct-1">0%</div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <div class="section">
+        <div class="section-label">Download e conta</div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Acesse <strong>dolphin-anty.com</strong> e clique em Download</div>
+            <div class="task-hint">Disponível para Windows, Mac e Linux. Tamanho pequeno — instala em 1 minuto.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Crie sua conta gratuita no site (e-mail + senha)</div>
+            <div class="task-hint">Você ganha 5 perfis gratuitos imediatamente, sem cartão.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Instale o programa e faça login com sua conta</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Ative 2FA (autenticação de dois fatores) na sua conta Dolphin</div>
+            <div class="task-hint">Configurações → Segurança → Ativar 2FA. Protege seus perfis de acessos não autorizados.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Proxy residencial</div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Entenda a diferença: proxy <strong>residencial</strong> vs proxy de <strong>data center</strong></div>
+            <div class="task-hint">Residencial = IP de uma casa real. Data center = IP de servidor. TikTok detecta data center facilmente. Nunca use data center para contas TikTok.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Compre proxies residenciais — 1 por conta TikTok que for criar</div>
+            <div class="task-hint">Fornecedores confiáveis: Bright Data, Smartproxy, Oxylabs. Para começar barato: Webshare ou IPRoyal (plano residencial).</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">O IP do proxy deve ser do mesmo país da conta TikTok</div>
+            <div class="task-hint">Conta brasileira → proxy BR. Conta americana → proxy US. Misturar países levanta flags.</div>
+          </div>
+        </div>
+        <div class="callout">
+          <strong>Regra de ouro:</strong> 1 conta = 1 proxy = 1 perfil Dolphin. Nunca compartilhe o mesmo proxy entre duas contas TikTok.
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Criando o primeiro perfil</div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">No Dolphin: clique em <strong>+ Novo Perfil</strong></div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Dê um nome ao perfil (ex: "TikTok_BR_01") e adicione o proxy na aba Proxy</div>
+            <div class="task-hint">Formato: http://usuario:senha@ip:porta ou socks5://...</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Clique em <strong>Verificar Proxy</strong> — deve mostrar IP e localização corretos</div>
+            <div class="task-hint">Se falhar, revise o formato ou troque de proxy. Não avance sem o proxy funcionando.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Salve o perfil e clique em <strong>Iniciar</strong> — o navegador isolado abrirá</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Teste a fingerprint em <strong>pixelscan.net</strong> ou <strong>browserleaks.com</strong></div>
+            <div class="task-hint">Se mostrar "Nenhuma inconsistência detectada", está protegido. Se mostrar alertas, ajuste as configurações de fingerprint no perfil.</div>
+          </div>
+        </div>
+        <div class="mini-bar"><div class="mini-fill" id="bar-phase-1"></div></div>
+        <div class="mini-stats"><span id="stat-phase-1">0 / 0 concluídas</span><span id="pct2-1">0%</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div class="phase" data-phase="2">
+    <div class="phase-header" onclick="togglePhase(this)">
+      <div class="phase-left">
+        <div class="phase-icon amber">🔥</div>
+        <div class="phase-info">
+          <div class="phase-title">Fase 2 — Aquecimento de Contas</div>
+          <div class="phase-sub">Como construir contas que o TikTok confia</div>
+        </div>
+      </div>
+      <div class="phase-right">
+        <div class="phase-pct" id="pct-2">0%</div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <div class="section">
+        <div class="section-label">Antes de criar a conta TikTok</div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Abra o perfil Dolphin e navegue por 20–30 minutos antes de criar qualquer conta</div>
+            <div class="task-hint">Entre em sites normais, faça pesquisas, assista alguns vídeos. Isso gera cookies naturais no perfil.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Prepare um e-mail ou número de telefone exclusivo para esta conta</div>
+            <div class="task-hint">Nunca reutilize e-mail ou telefone entre perfis. Use um número novo ou serviço de SMS virtual.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Crie a conta TikTok <em>dentro do perfil Dolphin</em> — nunca no app do celular para esta conta</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Semana 1 — comportamento leve</div>
+        <div class="callout amber">
+          <strong>Mentalidade de aquecimento:</strong> você é uma pessoa nova chegando na plataforma. Age devagar. Ganha confiança. Só então vende.
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Dias 1–3: complete o perfil (foto, bio, nome) e só navegue no feed</div>
+            <div class="task-hint">Curta 5–10 vídeos por dia. Nada mais. Não poste, não siga ninguém ainda.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Dias 4–7: siga entre 10–20 contas do seu nicho, comente 2–3 vezes ao dia</div>
+            <div class="task-hint">Comentários reais, com valor. Nunca "ótimo vídeo!" — escreva algo genuíno.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Varie os horários de acesso — manhã, tarde e noite em dias diferentes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Semana 2 — aumento gradual</div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Dias 8–10: poste o primeiro vídeo simples — apresentação da conta ou conteúdo educativo</div>
+            <div class="task-hint">Nada de produto ou link ainda. Só conteúdo para o algoritmo aprender seu nicho.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Dias 11–14: publique 1 vídeo por dia, responda todos os comentários</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Nunca use scripts ou ferramentas de automação nesta fase — ações manuais apenas</div>
+            <div class="task-hint">Automação na fase de aquecimento é a causa número 1 de ban precoce.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Semana 3+ — conta estabilizada</div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">A partir da semana 3, a conta está aquecida — agora ative o TikTok Shop Afiliado</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Repita o processo para cada nova conta — nunca pule a fase de aquecimento</div>
+            <div class="task-hint">Uma conta por vez. Apressar o processo derruba tudo que foi construído.</div>
+          </div>
+        </div>
+        <div class="mini-bar"><div class="mini-fill" id="bar-phase-2"></div></div>
+        <div class="mini-stats"><span id="stat-phase-2">0 / 0 concluídas</span><span id="pct2-2">0%</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FASE 3 -->
+  <div class="phase" data-phase="3">
+    <div class="phase-header" onclick="togglePhase(this)">
+      <div class="phase-left">
+        <div class="phase-icon blue">🚀</div>
+        <div class="phase-info">
+          <div class="phase-title">Fase 3 — Operação Multi-Contas</div>
+          <div class="phase-sub">Gerenciar dezenas de perfis com segurança e eficiência</div>
+        </div>
+      </div>
+      <div class="phase-right">
+        <div class="phase-pct" id="pct-3">0%</div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <div class="section">
+        <div class="section-label">Organização de perfis</div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Use pastas para organizar perfis por nicho, fase de aquecimento ou loja</div>
+            <div class="task-hint">Exemplo: pasta "Aquecendo", pasta "Ativas TikTok Shop", pasta "Ads". Facilita gerenciar 20+ perfis.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Use tags coloridas para marcar status: 🟢 Ativa, 🟡 Aquecendo, 🔴 Banida</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Adicione notas em cada perfil: qual conta TikTok, qual proxy, data de criação</div>
+            <div class="task-hint">Quando tiver 30 contas, você vai agradecer por essa organização.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Execução diária</div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Monte uma rotina: abra cada perfil em sequência, opere, feche antes de abrir o próximo</div>
+            <div class="task-hint">Não deixe 10 perfis abertos ao mesmo tempo sem necessidade — consome RAM e pode gerar comportamento suspeito.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Use o <strong>Sincronizador de Ações</strong> do Dolphin com cuidado — só para ações não-suspeitas</div>
+            <div class="task-hint">Curtir ou visualizar em bloco: OK após aquecimento. Postar o mesmo vídeo em todas: risco alto.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Cada conta deve ter conteúdo único — nunca poste o mesmo vídeo idêntico em múltiplas contas</div>
+            <div class="task-hint">Vídeos idênticos são detectados por hash. Edite levemente cada um (corte, filtro, cor) antes de repostar.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Estratégias de escala</div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Estratégia de nichos separados: cada conta em um nicho diferente (beleza, pet, casa, tech)</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Estratégia de funil: 1 conta de topo de funil (viral/educativo) → direciona para conta principal de vendas</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Estratégia de segurança: mantenha 2–3 contas em aquecimento sempre como reserva</div>
+            <div class="task-hint">Se uma conta for banida, você já tem substituta aquecida e pronta para operar.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Estratégia de equipe: compartilhe perfis com colaboradores sem revelar senha principal</div>
+            <div class="task-hint">Dolphin Anty permite compartilhar perfis específicos com VA (assistente virtual) com permissões limitadas.</div>
+          </div>
+        </div>
+        <div class="callout blue">
+          <strong>Meta realista:</strong> com 5 contas ativas e aquecidas corretamente, você pode gerar de R$3.000 a R$10.000/mês em comissões de afiliado. O sistema de multi-contas multiplica esse número linearmente.
+        </div>
+        <div class="mini-bar"><div class="mini-fill" id="bar-phase-3"></div></div>
+        <div class="mini-stats"><span id="stat-phase-3">0 / 0 concluídas</span><span id="pct2-3">0%</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FASE 4 -->
+  <div class="phase" data-phase="4">
+    <div class="phase-header" onclick="togglePhase(this)">
+      <div class="phase-left">
+        <div class="phase-icon purple">⚠️</div>
+        <div class="phase-info">
+          <div class="phase-title">Fase 4 — Erros Fatais e Proteção</div>
+          <div class="phase-sub">O que derruba contas e como evitar</div>
+        </div>
+      </div>
+      <div class="phase-right">
+        <div class="phase-pct" id="pct-4">0%</div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <div class="section">
+        <div class="section-label">Erros que derrubam contas</div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Nunca acesse uma conta Dolphin no app do celular ou navegador comum</div>
+            <div class="task-hint">Se você logou a conta no iPhone E no Dolphin, o TikTok cruza os dados e detecta. Uma conta = um único ambiente.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Nunca use proxy de data center barato — é sinal vermelho imediato para o TikTok</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Nunca sincronize ações idênticas em múltiplas contas (mesmo texto, mesmo tempo)</div>
+            <div class="task-hint">Postagem simultânea do mesmo conteúdo em 5 contas ao mesmo tempo = flag de operação de bot.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Nunca pule a fase de aquecimento — sem aquecimento = ban em dias</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Nunca reutilize cookies ou perfil de conta banida em uma nova conta</div>
+            <div class="task-hint">Crie um perfil Dolphin completamente novo para cada nova conta. Do zero.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Quando uma conta é banida</div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Nunca tente recuperar uma conta banida pelo mesmo perfil Dolphin ou mesmo proxy</div>
+            <div class="task-hint">O proxy está queimado. Jogue fora e comece com novo proxy + novo perfil.</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Analise o motivo do ban antes de criar a próxima conta — o que foi feito diferente?</div>
+          </div>
+        </div>
+        <div class="task" onclick="toggle(this)">
+          <div class="checkbox"><svg class="checkmark" viewBox="0 0 12 12" fill="none"><polyline points="1.5,6 4.5,9 10.5,3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="task-text">
+            <div class="task-main">Ative a conta reserva aquecida — é para isso que ela existe</div>
+          </div>
+        </div>
+        <div class="callout amber">
+          <strong>Mindset certo:</strong> ban é custo de operação. Quem escala com multi-contas profissionais inclui isso no plano. O sistema é construído para sobreviver ao ban, não para nunca ter ban.
+        </div>
+        <div class="mini-bar"><div class="mini-fill" id="bar-phase-4"></div></div>
+        <div class="mini-stats"><span id="stat-phase-4">0 / 0 concluídas</span><span id="pct2-4">0%</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- UPSELL -->
+  <div class="upsell">
+    <div class="upsell-icon">📈</div>
+    <div class="upsell-content">
+      <div class="upsell-label">Próximo nível</div>
+      <div class="upsell-title">TikTok Shop Afiliado — Sistema Completo</div>
+      <div class="upsell-desc">Escolha de produtos, roteiro de vídeo, CTAs que convertem e como fazer Lives que geram R$3k–R$15k/mês.</div>
+      <a class="upsell-btn" href="https://vando90moraes.github.io/programatiktok/planner.html">Ver curso completo →</a>
+    </div>
+  </div>
+
+  <div class="completion" id="completion">
+    <div style="font-size:48px;margin-bottom:16px;">🐬</div>
+    <h2>Sistema configurado!</h2>
+    <p style="margin-top:8px;">Você tem tudo que precisa para operar profissionalmente.<br>Agora é execução. Boa escala.</p>
+  </div>
+
+</main>
+
+<footer class="footer">
+  Progresso salvo automaticamente &nbsp;·&nbsp; Feito para vendedores sérios 🖤
+</footer>
+
+<script>
+  const STORAGE_KEY = 'dolphin_pro_v1';
+
+  function getState() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; }
+  }
+  function saveState(s) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+  }
+
+  function toggle(el) {
+    const state = getState();
+    const tasks = Array.from(document.querySelectorAll('.task'));
+    const idx = tasks.indexOf(el);
+    el.classList.toggle('done');
+    state[idx] = el.classList.contains('done');
+    saveState(state);
+    updateAll();
+  }
+
+  function togglePhase(headerEl) {
+    const phase = headerEl.closest('.phase');
+    phase.classList.toggle('open');
+  }
+
+  function updateAll() {
+    const tasks = Array.from(document.querySelectorAll('.task'));
+    const total = tasks.length;
+    const done = tasks.filter(t => t.classList.contains('done')).length;
+    const pct = total ? Math.round(done / total * 100) : 0;
+
+    document.getElementById('done-count').textContent = done;
+    document.getElementById('total-count').textContent = total;
+    document.getElementById('main-bar').style.width = pct + '%';
+    document.getElementById('hdr-pct').textContent = pct + '%';
+
+    [1,2,3,4].forEach(p => {
+      const phase = document.querySelector(`.phase[data-phase="${p}"]`);
+      if (!phase) return;
+      const pt = Array.from(phase.querySelectorAll('.task'));
+      const pd = pt.filter(t => t.classList.contains('done')).length;
+      const pp = pt.length ? Math.round(pd / pt.length * 100) : 0;
+      const pctEl = document.getElementById(`pct-${p}`);
+      const barEl = document.getElementById(`bar-phase-${p}`);
+      const statEl = document.getElementById(`stat-phase-${p}`);
+      const pct2El = document.getElementById(`pct2-${p}`);
+      if (pctEl) { pctEl.textContent = pp + '%'; pctEl.className = 'phase-pct' + (pp === 100 ? ' done' : ''); }
+      if (barEl) barEl.style.width = pp + '%';
+      if (statEl) statEl.textContent = `${pd} / ${pt.length} concluídas`;
+      if (pct2El) pct2El.textContent = pp + '%';
+    });
+
+    document.getElementById('completion').classList.toggle('show', done === total && total > 0);
+  }
+
+  function restoreState() {
+    const state = getState();
+    const tasks = Array.from(document.querySelectorAll('.task'));
+    tasks.forEach((t, i) => {
+      if (state[i]) t.classList.add('done');
+    });
+    updateAll();
+  }
+
+  restoreState();
+</script>
+</body>
+</html>
