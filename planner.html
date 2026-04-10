@@ -822,13 +822,12 @@
 <script>
   // ── Controle de acesso ──────────────────────────────────────────
   (function () {
+    const SECRET_KEY = 'tkg2026';
     const params = new URLSearchParams(window.location.search);
-    if (params.get('redirect_status') === 'succeeded') {
-      // Vindo do Stripe após pagamento — grava acesso e limpa a URL
+    if (params.get('key') === SECRET_KEY || params.get('redirect_status') === 'succeeded') {
       localStorage.setItem('tiktok-paid', 'true');
       history.replaceState(null, '', window.location.pathname);
     } else if (localStorage.getItem('tiktok-paid') !== 'true') {
-      // Sem pagamento registrado — volta para a página de vendas
       window.location.replace('index.html');
     }
   })();

@@ -692,8 +692,9 @@
 
 <script>
   (function () {
+    const SECRET_KEY = 'beauty2026';
     const params = new URLSearchParams(window.location.search);
-    if (params.get('redirect_status') === 'succeeded') {
+    if (params.get('key') === SECRET_KEY || params.get('redirect_status') === 'succeeded') {
       localStorage.setItem('beauty-paid', 'true');
       history.replaceState(null, '', window.location.pathname);
     } else if (localStorage.getItem('beauty-paid') !== 'true') {
