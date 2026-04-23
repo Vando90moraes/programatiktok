@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Course — Beauty Creator & TikTok Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --surface: #111;
+  --surface2: #181818;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --pink: #ff2d8d;
+  --pink-dim: rgba(255,45,141,0.12);
+  --gold: #f0b429;
+  --gold-dim: rgba(240,180,41,0.12);
+  --teal: #00e5a0;
+  --teal-dim: rgba(0,229,160,0.10);
+  --blue: #3b9eff;
+  --blue-dim: rgba(59,158,255,0.10);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167,139,250,0.10);
+  --text: #f0f0f0;
+  --muted: #888;
+  --muted2: #555;
+  --sidebar-w: 260px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;
+  background:var(--surface);border-right:1px solid var(--border);
+  overflow-y:auto;z-index:100;padding:24px 0 40px;
+}
+.sidebar-logo{
+  padding:0 20px 24px;border-bottom:1px solid var(--border);
+  font-family:'Syne',sans-serif;font-size:15px;font-weight:800;
+  display:flex;align-items:center;gap:8px;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--pink);display:inline-block;}
+.sidebar-nav{padding:16px 0;}
+.nav-section-title{
+  padding:12px 20px 6px;font-size:10px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--muted2);font-weight:600;
+}
+.nav-item{
+  display:flex;align-items:center;gap:10px;padding:9px 20px;
+  font-size:13px;color:var(--muted);cursor:pointer;
+  transition:all .15s;border-left:3px solid transparent;
+  text-decoration:none;
+}
+.nav-item:hover{color:var(--text);background:rgba(255,255,255,.03);}
+.nav-item.active{color:var(--text);border-left-color:var(--pink);background:rgba(255,45,141,.06);}
+.nav-item .num{
+  font-size:10px;font-weight:700;width:20px;height:20px;border-radius:50%;
+  background:var(--surface2);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+
+/* ── MAIN ── */
+.main{margin-left:var(--sidebar-w);min-height:100vh;}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(135deg,#1a0a14 0%,#0a0a1a 100%);
+  padding:80px 60px 72px;border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-100px;right:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,45,141,.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--pink);margin-bottom:16px;font-weight:600;}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,64px);font-weight:800;line-height:1.1;margin-bottom:20px;}
+.hero h1 span{color:var(--pink);}
+.hero-sub{font-size:17px;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:36px;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;}
+.tag{
+  padding:6px 14px;border:1px solid var(--border2);border-radius:20px;
+  font-size:12px;color:var(--muted);
+}
+.tag.pink{border-color:var(--pink);color:var(--pink);background:var(--pink-dim);}
+.tag.gold{border-color:var(--gold);color:var(--gold);background:var(--gold-dim);}
+.tag.teal{border-color:var(--teal);color:var(--teal);background:var(--teal-dim);}
+
+/* ── SECTIONS ── */
+.section{padding:60px 60px;border-bottom:1px solid var(--border);}
+.section:last-child{border-bottom:none;}
+.section-header{margin-bottom:40px;}
+.section-num{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:8px;}
+.section-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;margin-bottom:8px;}
+.section-desc{font-size:15px;color:var(--muted);max-width:640px;line-height:1.7;}
+
+/* ── MODULE CARD ── */
+.module-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.module-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:24px;transition:border-color .2s;
+}
+.module-card:hover{border-color:var(--border2);}
+.module-card .icon{font-size:28px;margin-bottom:12px;}
+.module-card h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:6px;}
+.module-card p{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* ── STEPS ── */
+.steps{display:flex;flex-direction:column;gap:4px;margin-top:16px;}
+.step-item{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;overflow:hidden;cursor:pointer;
+}
+.step-header{
+  display:flex;align-items:center;gap:14px;padding:16px 20px;
+  transition:background .15s;
+}
+.step-header:hover{background:var(--surface2);}
+.step-num-badge{
+  width:28px;height:28px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:12px;font-weight:700;
+  flex-shrink:0;
+}
+.step-title{font-size:14px;font-weight:600;flex:1;}
+.step-chevron{font-size:12px;color:var(--muted);transition:transform .2s;}
+.step-body{
+  padding:0 20px 0 62px;max-height:0;overflow:hidden;
+  transition:max-height .3s ease,padding .3s ease;
+}
+.step-body.open{max-height:800px;padding:0 20px 20px 62px;}
+.step-body p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:8px;}
+.step-body ul{padding-left:16px;display:flex;flex-direction:column;gap:4px;}
+.step-body ul li{font-size:13px;color:var(--muted);line-height:1.6;}
+.step-body .tip{
+  margin-top:12px;padding:12px 16px;background:var(--surface2);
+  border-radius:8px;border-left:3px solid var(--gold);
+  font-size:12px;color:var(--muted);line-height:1.6;
+}
+.step-body .tip strong{color:var(--gold);}
+.step-body code{
+  background:rgba(255,255,255,.08);padding:2px 6px;border-radius:4px;
+  font-family:monospace;font-size:12px;color:var(--teal);
+}
+
+/* ── AFFILIATE TABLE ── */
+.aff-table{width:100%;border-collapse:collapse;margin-top:16px;}
+.aff-table th{
+  text-align:left;padding:10px 14px;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted2);border-bottom:1px solid var(--border);
+}
+.aff-table td{padding:12px 14px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:top;}
+.aff-table tr:last-child td{border-bottom:none;}
+.aff-table tr:hover td{background:rgba(255,255,255,.02);}
+.badge{
+  display:inline-block;padding:3px 10px;border-radius:20px;
+  font-size:11px;font-weight:600;letter-spacing:.05em;
+}
+.badge.p1{background:rgba(0,229,160,.15);color:var(--teal);}
+.badge.p2{background:rgba(59,158,255,.15);color:var(--blue);}
+.badge.p3{background:rgba(240,180,41,.15);color:var(--gold);}
+.badge.warn{background:rgba(245,158,11,.15);color:#f59e0b;}
+.badge.no{background:rgba(255,77,77,.15);color:#ff4d4d;}
+
+/* ── SEO GRID ── */
+.seo-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+.seo-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:24px;
+}
+.seo-card .platform{
+  display:flex;align-items:center;gap:10px;margin-bottom:16px;
+}
+.seo-card .platform-icon{font-size:24px;}
+.seo-card .platform-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;}
+.seo-rules{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.seo-rules li{
+  font-size:13px;color:var(--muted);line-height:1.6;
+  padding-left:14px;position:relative;
+}
+.seo-rules li::before{content:'→';position:absolute;left:0;color:var(--pink);}
+.seo-rules li strong{color:var(--text);}
+
+/* ── TIMELINE ── */
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:16px;}
+.tl-item{display:flex;gap:20px;padding-bottom:32px;position:relative;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item:not(:last-child) .tl-line::after{
+  content:'';position:absolute;left:15px;top:32px;
+  width:2px;height:calc(100% - 32px);background:var(--border);
+}
+.tl-line{position:relative;flex-shrink:0;width:32px;display:flex;justify-content:center;}
+.tl-dot{
+  width:32px;height:32px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:13px;font-weight:700;
+  flex-shrink:0;z-index:1;
+}
+.tl-content{flex:1;padding-top:4px;}
+.tl-content h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:8px;}
+.tl-content p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:6px;}
+.tl-tasks{list-style:none;display:flex;flex-direction:column;gap:4px;}
+.tl-tasks li{font-size:13px;color:var(--muted);padding-left:14px;position:relative;}
+.tl-tasks li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-size:11px;}
+
+/* ── CALLOUT ── */
+.callout{
+  padding:20px 24px;border-radius:10px;margin:16px 0;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.callout.pink{background:var(--pink-dim);border:1px solid rgba(255,45,141,.3);}
+.callout.gold{background:var(--gold-dim);border:1px solid rgba(240,180,41,.3);}
+.callout.teal{background:var(--teal-dim);border:1px solid rgba(0,229,160,.3);}
+.callout-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.callout-text{font-size:13px;line-height:1.7;}
+.callout-text strong{display:block;margin-bottom:4px;font-size:14px;}
+
+/* ── TOOL CARDS ── */
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+.tool-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:28px 24px;
+}
+.tool-card .tool-logo{font-size:32px;margin-bottom:12px;}
+.tool-card h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:4px;}
+.tool-card .tool-role{font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;font-weight:600;}
+.tool-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px;}
+.tool-card .use-list{list-style:none;display:flex;flex-direction:column;gap:4px;}
+.tool-card .use-list li{font-size:12px;color:var(--muted);padding-left:14px;position:relative;}
+.tool-card .use-list li::before{content:'▸';position:absolute;left:0;color:var(--pink);}
+
+/* ── WORKFLOW ── */
+.workflow{display:flex;align-items:center;gap:0;margin:24px 0;overflow-x:auto;padding-bottom:8px;}
+.wf-step{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:16px 20px;min-width:160px;text-align:center;flex-shrink:0;
+}
+.wf-step .wf-icon{font-size:24px;margin-bottom:8px;}
+.wf-step .wf-title{font-size:13px;font-weight:600;margin-bottom:4px;}
+.wf-step .wf-sub{font-size:11px;color:var(--muted);}
+.wf-arrow{color:var(--muted2);font-size:20px;padding:0 8px;flex-shrink:0;}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%);transition:transform .3s;}
+  .sidebar.open{transform:translateX(0);}
+  .main{margin-left:0;}
+  .hero{padding:40px 24px 48px;}
+  .section{padding:40px 24px;}
+  .module-grid,.seo-grid,.tool-grid{grid-template-columns:1fr;}
+  .mobile-menu{
+    display:flex;position:fixed;top:0;left:0;right:0;height:52px;
+    background:var(--surface);border-bottom:1px solid var(--border);
+    align-items:center;padding:0 20px;gap:12px;z-index:99;
+  }
+  .mobile-menu-btn{
+    background:none;border:1px solid var(--border);
+    color:var(--text);padding:6px 12px;border-radius:6px;cursor:pointer;font-size:13px;
+  }
+  .main{padding-top:52px;}
+}
+@media(min-width:901px){.mobile-menu{display:none;}}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:10px;}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <button class="mobile-menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰ Menu</button>
+  <span style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;">Beauty Creator — Complete Course</span>
+</div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo"><span class="dot"></span> Beauty Creator</div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-title">Start</div>
+    <a href="#intro" class="nav-item active"><span class="num">0</span> Overview</a>
+
+    <div class="nav-section-title">Tools</div>
+    <a href="#ferramentas" class="nav-item"><span class="num">1</span> Essential Stack</a>
+    <a href="#dolphin" class="nav-item"><span class="num">2</span> Dolphin Anty</a>
+    <a href="#gpt" class="nav-item"><span class="num">3</span> ChatGPT Workflow</a>
+
+    <div class="nav-section-title">Video Production</div>
+    <a href="#descript" class="nav-item"><span class="num">4</span> Produce in Descript</a>
+    <a href="#capcut" class="nav-item"><span class="num">5</span> Finish in CapCut</a>
+
+    <div class="nav-section-title">Growth</div>
+    <a href="#crescimento" class="nav-item"><span class="num">6</span> Organic Growth</a>
+    <a href="#tiktokshop" class="nav-item"><span class="num">7</span> TikTok Shop</a>
+
+    <div class="nav-section-title">Monetization</div>
+    <a href="#afiliados" class="nav-item"><span class="num">8</span> Affiliate Programs</a>
+    <a href="#conteudo" class="nav-item"><span class="num">9</span> Content Structure</a>
+
+    <div class="nav-section-title">SEO & Distribution</div>
+    <a href="#seo" class="nav-item"><span class="num">10</span> SEO by Platform</a>
+
+    <div class="nav-section-title">Execution</div>
+    <a href="#plano" class="nav-item"><span class="num">11</span> 90-Day Plan</a>
+  </nav>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- HERO -->
+<section class="hero" id="intro">
+  <p class="hero-eyebrow">Module 0 · Complete Overview</p>
+  <h1>Beauty Creator &<br><span>TikTok Shop</span><br>From Zero to Income</h1>
+  <p class="hero-sub">A complete, synthesized course: tools, video production, organic growth, affiliate programs, and SEO across all platforms. Everything in one place.</p>
+  <div class="hero-tags">
+    <span class="tag pink">TikTok Shop</span>
+    <span class="tag gold">Dolphin Anty</span>
+    <span class="tag teal">CapCut + Descript</span>
+    <span class="tag">ChatGPT</span>
+    <span class="tag">Beauty Affiliates</span>
+    <span class="tag">Multi-Platform SEO</span>
+  </div>
+
+  <div style="margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:600px;">
+    <div style="text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--pink);">11</div>
+      <div style="font-size:11px;color:var(--muted);">Modules</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--gold);">8</div>
+      <div style="font-size:11px;color:var(--muted);">Affiliate Programs</div>
+    </div>
+    <div style="font-family:'Syne',sans-serif;text-align:center;">
+      <div style="font-size:32px;font-weight:800;color:var(--teal);">4</div>
+      <div style="font-size:11px;color:var(--muted);">SEO Platforms</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--blue);">90</div>
+      <div style="font-size:11px;color:var(--muted);">Day Plan</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 1 — TOOLS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="ferramentas">
+  <div class="section-header">
+    <p class="section-num">Module 1 · Tools</p>
+    <h2 class="section-title">Essential Creator Stack</h2>
+    <p class="section-desc">Before recording any video, set up these 5 tools. They are the minimum kit to operate efficiently and professionally.</p>
+  </div>
+
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tool-logo">🐬</div>
+      <h3>Dolphin Anty</h3>
+      <div class="tool-role" style="color:var(--teal);">Multi-account without ban risk</div>
+      <p>Anti-detect browser that simulates unique device profiles. Each TikTok account runs in a separate "virtual computer" — the algorithm sees different users.</p>
+      <ul class="use-list">
+        <li>Manage 5+ TikTok accounts simultaneously</li>
+        <li>Each profile with isolated IP, fingerprint, and cookies</li>
+        <li>Prevents TikTok from linking your accounts together</li>
+        <li>Automates repetitive actions (with Selenium/Puppeteer)</li>
+      </ul>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-logo">🤖</div>
+      <h3>ChatGPT</h3>
+      <div class="tool-role" style="color:var(--pink);">Scripts, captions, and SEO</div>
+      <p>Use GPT-4 to create video scripts, generate hook variations, optimize descriptions for SEO, and build complete content calendars.</p>
+      <ul class="use-list">
+        <li>Generate 10 different hooks for any product</li>
+        <li>Create optimized 30s/60s scripts</li>
+        <li>Suggest hashtags by niche and platform</li>
+        <li>Adapt content for each social network</li>
+      </ul>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-logo">✂️</div>
+      <h3>Descript</h3>
+      <div class="tool-role" style="color:var(--gold);">Professional text-based editing</div>
+      <p>Auto-transcribes your video and lets you edit by deleting words — like editing a Word document. Generates captions in seconds.</p>
+      <ul class="use-list">
+        <li>Auto-transcription in English and Portuguese</li>
+        <li>Remove "uh", "um", silences with 1 click</li>
+        <li>Export clean video to import into CapCut</li>
+        <li>Generate SRT captions for all platforms</li>
+      </ul>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-logo">🎬</div>
+      <h3>CapCut</h3>
+      <div class="tool-role" style="color:var(--purple);">Finishing and publishing</div>
+      <p>Mobile/desktop editor integrated with TikTok. Applies trends, effects, animated text, and allows publishing directly to TikTok without leaving the app.</p>
+      <ul class="use-list">
+        <li>Viral beauty templates ready to use</li>
+        <li>Automatic skin smoothing and color effects</li>
+        <li>Import video from Descript and finish here</li>
+        <li>Publish directly to TikTok and Instagram Reels</li>
+      </ul>
+    </div>
+
+    <div class="tool-card" style="grid-column:1/-1;">
+      <div class="tool-logo">📊</div>
+      <h3>LTK (LikeToKnow.it) + Impact.com</h3>
+      <div class="tool-role" style="color:var(--blue);">Affiliate link hub</div>
+      <p>LTK centralizes your affiliate links in a single visual storefront. Impact.com is where TULA, CapCut, Ulta, and other major programs live. Set up both before you start posting.</p>
+      <ul class="use-list">
+        <li>LTK: quick approval, works with any beauty product</li>
+        <li>Impact.com: platform for the biggest niche programs (TULA, Alpyn, CapCut, Ulta)</li>
+        <li>One LTK link = multiple products with individual tracking</li>
+        <li>Detailed reports on clicks, conversions, and commissions</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 2 — DOLPHIN ANTY -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="dolphin">
+  <div class="section-header">
+    <p class="section-num">Module 2 · Dolphin Anty</p>
+    <h2 class="section-title">TikTok Shop Multi-Account Without Ban</h2>
+    <p class="section-desc">Step-by-step guide to setting up multiple isolated profiles. Each account operates as if it were a different physical device.</p>
+  </div>
+
+  <div class="callout pink">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-text">
+      <strong>Why do this?</strong>
+      TikTok detects multi-accounts via browser fingerprint, IP, and shared cookies. Dolphin Anty creates completely isolated digital identities — TikTok cannot link your accounts to each other.
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">1</div>
+        <span class="step-title">Install Dolphin Anty and create an account</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>Go to <code>dolphin-anty.com</code> → download for Mac or Windows. Create a free account (free plan: up to 10 profiles). For more accounts, Basic plan ($89/mo) or Team ($159/mo).</p>
+        <ul>
+          <li>Install and log in to the web dashboard</li>
+          <li>Set the language to English for easier navigation</li>
+          <li>Under the <strong>Profiles</strong> tab, you'll see all your browser profiles</li>
+        </ul>
+        <div class="tip"><strong>Tip:</strong> The free plan is enough to test with 2–3 accounts before investing in a paid plan.</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">2</div>
+        <span class="step-title">Set up proxies — one per account</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>Each profile MUST have a different proxy. Use residential proxies (more reliable than datacenter for TikTok).</p>
+        <ul>
+          <li>Recommended services: <code>Bright Data</code>, <code>Oxylabs</code>, <code>IPRoyal</code></li>
+          <li>Type: <strong>Residential</strong> (not datacenter)</li>
+          <li>Location: Nashville, TN (match your actual city)</li>
+          <li>In Dolphin → Profile → Proxy → paste proxy data: <code>host:port:user:password</code></li>
+          <li>Click <strong>Check Proxy</strong> — the correct IP should appear</li>
+        </ul>
+        <div class="tip"><strong>Tip:</strong> Use mobile proxies if budget allows — they are the hardest for TikTok to detect.</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">3</div>
+        <span class="step-title">Create and configure browser profiles</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>Each profile = a unique digital identity. Configure it like this:</p>
+        <ul>
+          <li><strong>Name:</strong> use the account name (e.g. "Skincare 35+ Account")</li>
+          <li><strong>OS:</strong> Windows 10 or macOS (vary between profiles)</li>
+          <li><strong>Browser:</strong> Chrome (recommended for TikTok)</li>
+          <li><strong>Screen Resolution:</strong> vary between 1920x1080, 1366x768</li>
+          <li><strong>Language:</strong> English (US) with timezone America/Chicago</li>
+          <li><strong>WebGL/Canvas:</strong> set to "Noise" (generates a unique fingerprint)</li>
+        </ul>
+        <div class="tip"><strong>Golden rule:</strong> Never open two profiles in the same niche at the same time. Alternate with at least 30 minutes between sessions.</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">4</div>
+        <span class="step-title">Create a TikTok account inside the isolated profile</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>With the Dolphin profile open, create the TikTok account as if it were a brand new device:</p>
+        <ul>
+          <li>Go to <code>tiktok.com</code> inside the Dolphin profile</li>
+          <li>Create the account with a <strong>different email</strong> for each profile (use Gmail aliases: <code>youremail+account2@gmail.com</code>)</li>
+          <li>Use a different phone number (or a virtual SMS service like <code>TextNow</code>)</li>
+          <li>Spend the first 3 days only consuming niche content — don't post yet</li>
+          <li>Enable 2FA (two-factor authentication) on each account</li>
+        </ul>
+        <div class="tip"><strong>Warm-up period:</strong> New accounts that post immediately are more suspicious. Consume 30–60 min of content per day for 3 days before posting.</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">5</div>
+        <span class="step-title">Daily operation rules</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>To keep accounts safe long-term:</p>
+        <ul>
+          <li>Never copy/paste the same video across accounts — TikTok detects duplicate metadata</li>
+          <li>Each account must have a different niche (skincare, makeup, clean beauty, etc.)</li>
+          <li>Never access an account outside its correct Dolphin profile</li>
+          <li>Save sessions in Dolphin after each use ("Save Session" button)</li>
+          <li>If an account gets banned, don't try to recover it with the same proxy — change the proxy first</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 3 — ChatGPT -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="gpt">
+  <div class="section-header">
+    <p class="section-num">Module 3 · ChatGPT</p>
+    <h2 class="section-title">ChatGPT in Your Creation Workflow</h2>
+    <p class="section-desc">Don't use GPT just to "write a text." Use it as a co-creator at every step of the process — from scripting to SEO.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--gold-dim);color:var(--gold);">1</div>
+        <span class="step-title">Generate hooks for any product</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>Exact prompt to use:</p>
+        <div class="tip" style="border-color:var(--blue);font-style:italic;">
+          "Give me 10 opening hooks (first 3 seconds) for a TikTok video about [product name]. The hook should create curiosity, urgency, or envy. Audience: women 25–45 years old. Tone: honest, not salesy."
+        </div>
+        <p style="margin-top:12px;">Use the hook that feels most natural to you — you're the one recording, so it needs to sound authentic.</p>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--gold-dim);color:var(--gold);">2</div>
+        <span class="step-title">Create a 30–60 second script</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>Prompt for a full script:</p>
+        <div class="tip" style="border-color:var(--blue);font-style:italic;">
+          "Write a 45-second TikTok script for [product]. Structure: Hook (3s) → Demo/context (20s) → Concrete result (15s) → Simple CTA (5s). Conversational tone, first person, doesn't sound like an ad. Include where to pause and where to show the product on camera."
+        </div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--gold-dim);color:var(--gold);">3</div>
+        <span class="step-title">Generate optimized captions and descriptions</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>After recording, ask GPT to adapt the script into captions for each platform:</p>
+        <div class="tip" style="border-color:var(--blue);font-style:italic;">
+          "Based on this script: [paste script], create: 1) TikTok caption (150 chars + 5 beauty niche hashtags) 2) Instagram Reels caption (300 chars + 3 hashtags) 3) YouTube Shorts title (60 chars, with main keyword) 4) YouTube description (150 chars with natural keywords)"
+        </div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--gold-dim);color:var(--gold);">4</div>
+        <span class="step-title">Weekly content calendar</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <div class="tip" style="border-color:var(--blue);font-style:italic;">
+          "Create a 7-day content calendar for a beauty TikTok account focused on skincare and affiliates (Ulta, TULA, Amazon). I want: video type, suggested hook, focal product, which affiliate program to promote, best posting time. Max 2 videos per day."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 4 — DESCRIPT -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="descript">
+  <div class="section-header">
+    <p class="section-num">Module 4 · Descript</p>
+    <h2 class="section-title">Produce Professional Video in Descript</h2>
+    <p class="section-desc">Descript turns video editing into text editing. You record, it transcribes, you delete words — the video cuts with it. Perfect for reviews and spoken tutorials.</p>
+  </div>
+
+  <div class="workflow">
+    <div class="wf-step">
+      <div class="wf-icon">📱</div>
+      <div class="wf-title">Record</div>
+      <div class="wf-sub">Smartphone or webcam</div>
+    </div>
+    <div class="wf-arrow">→</div>
+    <div class="wf-step">
+      <div class="wf-icon">⬆️</div>
+      <div class="wf-title">Import</div>
+      <div class="wf-sub">Descript desktop/web</div>
+    </div>
+    <div class="wf-arrow">→</div>
+    <div class="wf-step">
+      <div class="wf-icon">📝</div>
+      <div class="wf-title">Transcribe</div>
+      <div class="wf-sub">Auto in seconds</div>
+    </div>
+    <div class="wf-arrow">→</div>
+    <div class="wf-step">
+      <div class="wf-icon">✂️</div>
+      <div class="wf-title">Edit text</div>
+      <div class="wf-sub">Delete words = cut video</div>
+    </div>
+    <div class="wf-arrow">→</div>
+    <div class="wf-step">
+      <div class="wf-icon">📤</div>
+      <div class="wf-title">Export</div>
+      <div class="wf-sub">MP4 for CapCut</div>
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--teal-dim);color:var(--teal);">1</div>
+        <span class="step-title">Set up a project in Descript</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>Download Descript at <code>descript.com</code> (free plan: 1hr/month free; Creator $24/mo for heavy use)</li>
+          <li>Create a new <strong>Workspace</strong> (e.g. "Beauty Creator")</li>
+          <li>Click <strong>New Project</strong> → <strong>Video Project</strong></li>
+          <li>Set transcription language: English if recording in English</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--teal-dim);color:var(--teal);">2</div>
+        <span class="step-title">Import your recorded video</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>Drag your video file into Descript's timeline (MP4, MOV, any format)</li>
+          <li>Wait for auto-transcription (usually 1–2 min per minute of video)</li>
+          <li>Review the transcript — click on any word to correct it</li>
+          <li>The text appears side by side with the video on the timeline</li>
+        </ul>
+        <div class="tip"><strong>Recording tip:</strong> Always record in 1080p with good lighting. Speak at a steady pace — transcription is more accurate and auto-cuts are cleaner.</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--teal-dim);color:var(--teal);">3</div>
+        <span class="step-title">Edit by cutting text</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>Select unnecessary words/phrases → Delete → the video cuts automatically</li>
+          <li>Use <strong>Remove Filler Words</strong> (Edit menu) to delete all "uh", "um", "like" at once</li>
+          <li>Use <strong>Remove Silences</strong> to cut long pauses automatically</li>
+          <li>To reorder scenes: select a text block → cut and paste it elsewhere</li>
+          <li>Add <strong>Scenes</strong> (chapters) to organize the structure visually</li>
+        </ul>
+        <div class="tip"><strong>Pro trick:</strong> Use Descript to create 15s, 30s, and 60s versions of the same video — duplicate the project, cut each to length, export three separate files.</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--teal-dim);color:var(--teal);">4</div>
+        <span class="step-title">Export for CapCut</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>Click <strong>Export</strong> → <strong>Video</strong></li>
+          <li>Resolution: <strong>1080x1920</strong> (vertical 9:16 for TikTok/Reels)</li>
+          <li>Format: <strong>MP4 H.264</strong></li>
+          <li><strong>Do not</strong> export with burned-in captions yet — CapCut will add styled captions</li>
+          <li>Save to your project folder with a descriptive name: <code>tula-serum-review-clean.mp4</code></li>
+        </ul>
+        <div class="tip"><strong>Optional:</strong> Also export the SRT file (captions) via File → Export → Transcript → SRT to use on YouTube.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 5 — CAPCUT -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="capcut">
+  <div class="section-header">
+    <p class="section-num">Module 5 · CapCut</p>
+    <h2 class="section-title">Finish and Publish in CapCut</h2>
+    <p class="section-desc">CapCut is where the video comes to life visually. Import the clean MP4 from Descript and add the elements that drive engagement: captions, text, music, and effects.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--purple-dim);color:var(--purple);">1</div>
+        <span class="step-title">Import the video from Descript</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>Open CapCut on mobile or desktop (<code>capcut.com</code>)</li>
+          <li>Tap <strong>+ New Project</strong> → select the MP4 exported from Descript</li>
+          <li>Confirm the ratio: <strong>9:16</strong> (vertical) for TikTok/Reels</li>
+          <li>If you recorded horizontally, use <strong>Auto Reframe</strong> — it detects your face and crops automatically</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--purple-dim);color:var(--purple);">2</div>
+        <span class="step-title">Add auto-captions</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>In the timeline, tap <strong>Text</strong> → <strong>Auto Captions</strong></li>
+          <li>Select language → click <strong>Start</strong> (takes ~30 seconds)</li>
+          <li>Choose the style: for beauty, use bold white fonts with black shadow or solid dark background</li>
+          <li>Recommended position: <strong>center-bottom</strong> (doesn't cover your face; stays above TikTok buttons)</li>
+          <li>Review and correct any product names that were mistranscribed</li>
+        </ul>
+        <div class="tip"><strong>Viral style:</strong> Captions that change color on keywords (use "Word-by-word text animation") increase watch time by ~15%.</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--purple-dim);color:var(--purple);">3</div>
+        <span class="step-title">Add trending music or sound</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>Tap <strong>Audio</strong> → <strong>Sounds</strong></li>
+          <li>Filter by <strong>TikTok Trending</strong> — use a sound from the top 20 in the beauty niche</li>
+          <li>Music volume: <strong>10–20%</strong> — your voice is the main audio, music is background</li>
+          <li>If your voice is clear, consider <strong>no music at all</strong> — honest review videos convert well without it</li>
+          <li>For product videos without voiceover (B-roll), music can go up to 50–70%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--purple-dim);color:var(--purple);">4</div>
+        <span class="step-title">Beauty effects and color grading</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li><strong>Color adjustment:</strong> Filters → "Skin" category → choose a subtle one (intensity 30–50%)</li>
+          <li><strong>Smoothing:</strong> Effects → Beauty → Skin Smoothing — use sparingly (30% max) to look natural</li>
+          <li><strong>Cinematic LUT:</strong> For a premium look, apply a neutral/warm filter — works well for skincare</li>
+          <li><strong>Never</strong> use filters that warp your face or completely erase pores — it kills authenticity</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--purple-dim);color:var(--purple);">5</div>
+        <span class="step-title">Export and publish</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>Click <strong>Export</strong> → Resolution: <strong>1080p</strong>, Frame rate: <strong>30fps</strong></li>
+          <li>Use the <strong>Post to TikTok</strong> option inside CapCut (faster than saving and re-uploading)</li>
+          <li>For Instagram Reels: export the file and upload manually in Instagram</li>
+          <li>For YouTube Shorts: same file, upload via YouTube Studio</li>
+          <li><strong>Do not</strong> repost the exact same file on TikTok and Instagram without at least one change (re-exporting is enough) — TikTok penalizes content with other platforms' watermarks</li>
+        </ul>
+        <div class="tip"><strong>Hack:</strong> In CapCut, enable "Remove watermark" before exporting to use the video on Instagram without the CapCut logo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 6 — ORGANIC GROWTH -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="crescimento">
+  <div class="section-header">
+    <p class="section-num">Module 6 · Growth</p>
+    <h2 class="section-title">Grow to 10K–30K Followers</h2>
+    <p class="section-desc">Without followers, there are no commissions. This module covers the real levers of organic growth on TikTok — based on algorithm behavior data.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">1</div>
+        <span class="step-title">Optimize your profile before posting</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li><strong>Photo:</strong> Clear face, smiling, good lighting — don't use a logo or product</li>
+          <li><strong>Username:</strong> include your niche (<code>@beautyfinds_nash</code>, <code>@skincarehonest</code>)</li>
+          <li><strong>Bio (80 chars):</strong> niche + benefit + CTA. Ex: "Honest Skincare 🔬 | Ulta + Amazon Finds | Link ↓"</li>
+          <li><strong>Link in bio:</strong> use LTK or Linktree with your affiliate links organized</li>
+          <li>Connect Instagram and YouTube to your TikTok profile</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">2</div>
+        <span class="step-title">Pick and own one niche per account</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>With multiple accounts (Dolphin Anty), each must have a clear niche. Suggestions:</p>
+        <ul>
+          <li><strong>Account 1:</strong> Skincare 35+ — TULA, Ulta, anti-aging routines</li>
+          <li><strong>Account 2:</strong> Amazon beauty finds — products under $30 with high volume</li>
+          <li><strong>Account 3:</strong> Clean Beauty / Natural — Alpyn Beauty, sustainable brands</li>
+          <li><strong>Account 4:</strong> Makeup for deep/dark skin — Sigma Beauty, inclusivity</li>
+          <li><strong>Account 5:</strong> Haircare — less saturated niche than skincare</li>
+        </ul>
+        <div class="tip"><strong>Rule:</strong> Stay in 1 niche for 30 days without deviating. The algorithm takes 2–3 weeks to understand what you post and start distributing to the right audience.</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">3</div>
+        <span class="step-title">Posting cadence and best times</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>Minimum frequency: <strong>1 video per day</strong> for the first 30 days</li>
+          <li>Ideal: <strong>2 videos per day</strong> at different times</li>
+          <li><strong>Best posting times (Nashville, ET):</strong></li>
+          <li>Morning: <strong>7am–9am</strong> (people commuting or having coffee)</li>
+          <li>Lunch: <strong>12pm–1pm</strong> (work break)</li>
+          <li>Evening: <strong>7pm–9pm</strong> (highest usage volume)</li>
+          <li>Test and use TikTok Analytics to confirm when your specific audience is active</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">4</div>
+        <span class="step-title">Engagement in the first 30 minutes</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>TikTok's algorithm evaluates early performance to decide reach. In the first 30 min after posting:</p>
+        <ul>
+          <li>Reply to <strong>every</strong> comment — even with just an emoji</li>
+          <li>Pin 1 comment of yours with a question (drives more replies)</li>
+          <li>Share the video to your Instagram Stories</li>
+          <li>Don't edit the caption after posting — TikTok resets distribution</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">5</div>
+        <span class="step-title">Duets, Stitch, and trending sounds</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li><strong>Stitch:</strong> Take viral videos from your niche (10M+ views) and add your opinion — you piggyback on their traffic</li>
+          <li><strong>Duet:</strong> Great for reacting to product reviews you also use</li>
+          <li><strong>Trending sounds:</strong> Always check the "Trends" tab in Creator Center — use audios with a green upward arrow ↑</li>
+          <li>Trending sounds give automatic organic boost even to small accounts</li>
+          <li>Limit: 2–3 Stitches per week — don't replace original content</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 7 — TIKTOK SHOP -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="tiktokshop">
+  <div class="section-header">
+    <p class="section-num">Module 7 · TikTok Shop</p>
+    <h2 class="section-title">Register and Monetize on TikTok Shop</h2>
+    <p class="section-desc">TikTok Shop is the fastest monetization available. Purchases happen inside the app — 3–5x higher conversion rate than external links.</p>
+  </div>
+
+  <div class="callout teal">
+    <span class="callout-icon">💡</span>
+    <div class="callout-text">
+      <strong>Minimum requirement: 1,000 followers</strong>
+      Focus on organic growth (Module 6) until you hit 1K. With a well-optimized account posting daily, this takes 2–4 weeks.
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--teal-dim);color:var(--teal);">1</div>
+        <span class="step-title">Register as an affiliate in Creator Center</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>Go to <code>creator.tiktok.com</code> → log in with your TikTok account</li>
+          <li>Sidebar → <strong>TikTok Shop</strong> → <strong>Affiliate</strong></li>
+          <li>Click <strong>Apply Now</strong> → fill in: name, address (Nashville), bank details</li>
+          <li>Approval usually takes 1–3 business days</li>
+          <li>After approval, access <strong>Product Marketplace</strong> to explore products</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--teal-dim);color:var(--teal);">2</div>
+        <span class="step-title">Choose products to promote</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>In Product Marketplace, filter by: <strong>Category: Beauty</strong>, <strong>Commission: 10%+</strong>, <strong>Sales: 100+/month</strong></li>
+          <li>Prioritize products with many positive reviews (4.5★+) — they already have social proof</li>
+          <li>Check if Ulta brands are available on TikTok Shop before creating content</li>
+          <li>Save favorite products to <strong>My Selections</strong> for quick access</li>
+          <li>Commission varies by category: skincare pays more than accessories</li>
+        </ul>
+        <div class="tip"><strong>Strategy:</strong> Pick 3–5 fixed products to run for 30 days instead of switching every video. Consistency builds association in your audience's mind.</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--teal-dim);color:var(--teal);">3</div>
+        <span class="step-title">Pin the product to your video when publishing</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>On TikTok's publish screen, scroll down to <strong>Add Link</strong></li>
+          <li>Select <strong>TikTok Shop Product</strong> → search for the product by name</li>
+          <li>The product appears as an orange button on the video — viewers tap and buy without leaving the app</li>
+          <li>Mention it out loud ("link is right on the video" or "tap the product below")</li>
+          <li>If exporting via CapCut directly to TikTok, you can add the product link right after</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--teal-dim);color:var(--teal);">4</div>
+        <span class="step-title">Track commissions and payment</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li>Creator Center → TikTok Shop → <strong>My Commissions</strong></li>
+          <li>You'll see: product clicks, orders, conversion rate, amount pending</li>
+          <li>Payment: <strong>weekly</strong>, directly to your registered bank account</li>
+          <li>Holding period: commission is confirmed 7 days after product delivery to the customer</li>
+          <li>Track which videos drive the most sales → replicate the formats that convert</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 8 — AFFILIATE PROGRAMS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="afiliados">
+  <div class="section-header">
+    <p class="section-num">Module 8 · Affiliate Programs</p>
+    <h2 class="section-title">The 8 Programs — Full Analysis</h2>
+    <p class="section-desc">Data verified March 2026. Recommended signup order with reasoning.</p>
+  </div>
+
+  <table class="aff-table">
+    <thead>
+      <tr>
+        <th>Program</th>
+        <th>Commission</th>
+        <th>Platform</th>
+        <th>Cookie</th>
+        <th>Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>TikTok Shop</strong><br><small style="color:var(--muted)">Native in-app</small></td>
+        <td>10–30%</td>
+        <td>TikTok Native</td>
+        <td>Direct tracking</td>
+        <td><span class="badge p1">WEEK 1</span></td>
+      </tr>
+      <tr>
+        <td><strong>LTK (LikeToKnow)</strong><br><small style="color:var(--muted)">Universal storefront</small></td>
+        <td>Varies by brand</td>
+        <td>LTK own platform</td>
+        <td>30 days</td>
+        <td><span class="badge p1">WEEK 1</span></td>
+      </tr>
+      <tr>
+        <td><strong>Amazon Associates</strong><br><small style="color:var(--muted)">Ulta products available</small></td>
+        <td>1–10%</td>
+        <td>Amazon direct</td>
+        <td>24h</td>
+        <td><span class="badge p1">WEEK 1</span></td>
+      </tr>
+      <tr>
+        <td><strong>TULA Skincare</strong><br><small style="color:var(--muted)">Long cookie, probiotic trend</small></td>
+        <td>15–20%</td>
+        <td>Impact.com / ShareASale</td>
+        <td><strong style="color:var(--teal)">90 days</strong></td>
+        <td><span class="badge p2">WEEK 2</span></td>
+      </tr>
+      <tr>
+        <td><strong>Alpyn Beauty</strong><br><small style="color:var(--muted)">Clean beauty, high commission</small></td>
+        <td>20–25%</td>
+        <td>ShareASale</td>
+        <td>30 days</td>
+        <td><span class="badge p2">WEEK 2</span></td>
+      </tr>
+      <tr>
+        <td><strong>Ulta UBCreates</strong><br><small style="color:var(--muted)">Slower approval process</small></td>
+        <td>16%</td>
+        <td>Rakuten / Impact</td>
+        <td>7–30 days</td>
+        <td><span class="badge p3">WEEK 3</span></td>
+      </tr>
+      <tr>
+        <td><strong>CapCut Pro</strong><br><small style="color:var(--muted)">Extra income, recurring commission</small></td>
+        <td>up to 35% recurring</td>
+        <td>Impact.com</td>
+        <td>30 days</td>
+        <td><span class="badge p3">WEEK 3–4</span></td>
+      </tr>
+      <tr>
+        <td><strong>Sigma Beauty PRO</strong><br><small style="color:var(--muted)">Makeup account only</small></td>
+        <td>10% affiliate</td>
+        <td>ShareASale</td>
+        <td>30 days</td>
+        <td><span class="badge warn">MONTH 2</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout gold" style="margin-top:24px;">
+    <span class="callout-icon">🔑</span>
+    <div class="callout-text">
+      <strong>Sigma Beauty heads-up:</strong> The advertised 40% is a discount for you to buy products — not a commission you receive. The real affiliate commission is 10%. Worth it for Account 4 (makeup) because the PRO discount lets you try products at lower cost for tutorials.
+    </div>
+  </div>
+
+  <div class="steps" style="margin-top:24px;">
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--gold-dim);color:var(--gold);">★</div>
+        <span class="step-title">How to sign up for all: step-by-step by platform</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p><strong style="color:var(--text);">Impact.com</strong> (TULA, CapCut, Ulta):</p>
+        <ul>
+          <li>Create 1 account at <code>impact.com</code> — it covers all programs on the platform</li>
+          <li>After login → <strong>Brands</strong> → search each brand → <strong>Apply</strong></li>
+          <li>Fill in your creator profile: followers, platforms, niche</li>
+        </ul>
+        <p style="margin-top:12px;"><strong style="color:var(--text);">ShareASale</strong> (Alpyn Beauty, Sigma Beauty):</p>
+        <ul>
+          <li>Create an account at <code>shareasale.com</code> → Publisher signup</li>
+          <li>Search for the brand in the marketplace → Request to Join</li>
+          <li>Approval in 2–5 business days</li>
+        </ul>
+        <p style="margin-top:12px;"><strong style="color:var(--text);">LTK / LikeToKnow.it:</strong></p>
+        <ul>
+          <li>Go to <code>ltk.com/become-a-creator</code> → fill out the form</li>
+          <li>No minimum follower count required, but they review content quality</li>
+          <li>After approval, add any beauty product and generate an affiliate link</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 9 — CONTENT STRUCTURE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="conteudo">
+  <div class="section-header">
+    <p class="section-num">Module 9 · Content Structure</p>
+    <h2 class="section-title">The Content Formula That Converts</h2>
+    <p class="section-desc">Every successful affiliate video follows a 4-act structure. No exceptions.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">01</div>
+        <span class="step-title">HOOK — 0 to 3 seconds — The Question That Stops the Scroll</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>If it doesn't stop the scroll in 3 seconds, the video doesn't exist for that user. Start with conflict, not with an introduction.</p>
+        <ul>
+          <li>"Is this $90 serum actually worth it?" (doubt)</li>
+          <li>"I tested the most expensive Sephora product for 30 days…" (suspense)</li>
+          <li>"Why is everyone buying this at Ulta right now?" (FOMO)</li>
+          <li>"This product wrecked my skin… in the best way" (twist)</li>
+        </ul>
+        <div class="tip"><strong>Rule:</strong> Never start with "Hey, how's it going?" or introducing yourself. The audience already knows who you are — they want to know what you have for them.</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">02</div>
+        <span class="step-title">DEMO — 3 to 25 seconds — Real Demonstration</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>Show application on skin, texture, scent (describe it), consistency. No hard cuts. No heavy filter. Authenticity is the product.</p>
+        <ul>
+          <li>Before / after in one continuous clip</li>
+          <li>Zoom in on texture and pigmentation</li>
+          <li>Genuine real-time reaction</li>
+          <li>Talk about what you feel, not what the brand says</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">03</div>
+        <span class="step-title">PROOF — 25 to 45 seconds — Concrete Result</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>Numbers, comparisons, close-up skin shot, honest opinion. If it didn't work 100%, say so — that triples credibility.</p>
+        <ul>
+          <li>"After 7 days, visibly smaller pores"</li>
+          <li>"Lasted 8 hours without a touch-up — I tested it at work"</li>
+          <li>"Didn't love the packaging, but the product itself…"</li>
+          <li>Mention price and where to buy at this point</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-header" onclick="toggleStep(this)">
+        <div class="step-num-badge" style="background:var(--pink-dim);color:var(--pink);">04</div>
+        <span class="step-title">CTA — Last 3 seconds — One Action, Only One</span>
+        <span class="step-chevron">▼</span>
+      </div>
+      <div class="step-body">
+        <p>Two CTAs = confusion = zero clicks. Choose ONE platform, ONE action, ONE link per video.</p>
+        <ul>
+          <li>"Link in bio — buy directly at Ulta" (Ulta affiliate)</li>
+          <li>"Tap the product below" (TikTok Shop)</li>
+          <li>"Check my LTK — it's in the links" (LTK storefront)</li>
+          <li>"Comment WANT and I'll send you the link" (engagement + link in comments)</li>
+        </ul>
+        <div class="tip"><strong>Why it works:</strong> "Comment WANT" drives comments → algorithm distributes more → more people see it → more sales. Use 2–3 times per week, not every video.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;">
+    <p style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:16px;">Formula Summary</p>
+    <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;line-height:2.2;color:var(--text);">
+      Hook that creates doubt<br>
+      <span style="color:var(--muted2);font-size:16px;">+</span><br>
+      Uncut demo (authenticity)<br>
+      <span style="color:var(--muted2);font-size:16px;">+</span><br>
+      Specific, real result<br>
+      <span style="color:var(--muted2);font-size:16px;">+</span><br>
+      One CTA, one action<br>
+      <span style="color:var(--muted2);font-size:16px;">=</span><br>
+      <span style="color:var(--pink);">SALE</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 10 — SEO -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="seo">
+  <div class="section-header">
+    <p class="section-num">Module 10 · SEO</p>
+    <h2 class="section-title">SEO by Platform</h2>
+    <p class="section-desc">Each platform has its own search algorithm. The same content needs to be optimized differently for each one.</p>
+  </div>
+
+  <div class="seo-grid">
+    <div class="seo-card">
+      <div class="platform">
+        <span class="platform-icon">🎵</span>
+        <span class="platform-name" style="color:var(--pink);">TikTok SEO</span>
+      </div>
+      <ul class="seo-rules">
+        <li><strong>Spoken keywords:</strong> say the product name and category out loud in the first 10 seconds — TikTok transcribes and indexes it</li>
+        <li><strong>On-screen text:</strong> put visible keywords in the video (e.g. "TULA Skincare Review")</li>
+        <li><strong>Caption:</strong> first sentence with main keyword (not a hashtag — plain text)</li>
+        <li><strong>Hashtags:</strong> 3–5 only — 1 broad (#beauty), 1 niche (#skincaeroutine), 1 specific (#tulareviews)</li>
+        <li><strong>Trending sound:</strong> top-trending audios get automatic preferential distribution</li>
+        <li><strong>Timing:</strong> post when your audience is active (Analytics → Followers → Activity)</li>
+      </ul>
+    </div>
+
+    <div class="seo-card">
+      <div class="platform">
+        <span class="platform-icon">▶️</span>
+        <span class="platform-name" style="color:var(--blue);">YouTube SEO</span>
+      </div>
+      <ul class="seo-rules">
+        <li><strong>Title (60 chars max):</strong> main keyword + benefit. Ex: "TULA Skincare Honest Review — 30 Days Results"</li>
+        <li><strong>Description:</strong> first 150 chars are indexed — put keyword, product name, and affiliate link here</li>
+        <li><strong>Tags:</strong> 10–15 tags, mix broad ("skincare review") and specific ("tula cleanser review 2026")</li>
+        <li><strong>Chapters:</strong> add timestamps with keywords — they appear in Google results</li>
+        <li><strong>Thumbnail:</strong> face + high contrast + 3 words max (e.g. "WORTH IT?")</li>
+        <li><strong>Shorts:</strong> keyword in title + #Shorts in description + affiliate link in first 3 links</li>
+      </ul>
+    </div>
+
+    <div class="seo-card">
+      <div class="platform">
+        <span class="platform-icon">📸</span>
+        <span class="platform-name" style="color:var(--purple);">Instagram SEO</span>
+      </div>
+      <ul class="seo-rules">
+        <li><strong>Display name:</strong> include a keyword in your display name (e.g. "Vando | Skincare Reviews") — it appears in searches</li>
+        <li><strong>Keyword-rich caption:</strong> Instagram indexes caption text — write naturally but include the product name and category</li>
+        <li><strong>Alt text:</strong> on every post, edit the image alt text with descriptive keywords</li>
+        <li><strong>Hashtags:</strong> 3–5 (the current algorithm penalizes 20–30 hashtags) — be specific</li>
+        <li><strong>Reels description:</strong> first sentence with keyword — appears in Instagram Search</li>
+        <li><strong>Location:</strong> geotag Nashville for local + national audience</li>
+      </ul>
+    </div>
+
+    <div class="seo-card">
+      <div class="platform">
+        <span class="platform-icon">👥</span>
+        <span class="platform-name" style="color:var(--gold);">Facebook SEO</span>
+      </div>
+      <ul class="seo-rules">
+        <li><strong>Groups:</strong> highest organic reach on Facebook — join beauty groups and post your videos with context</li>
+        <li><strong>Native upload:</strong> always upload videos directly to Facebook (not YouTube links) — the algorithm favors native content</li>
+        <li><strong>Video title:</strong> treat it like a blog headline — keyword + benefit + action</li>
+        <li><strong>Description:</strong> first 3 lines appear without clicking "see more" — use keywords here</li>
+        <li><strong>Alt text:</strong> set alt text on all product images</li>
+        <li><strong>Page vs Profile:</strong> create a Creator Page for access to Facebook Insights and greater reach</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout gold" style="margin-top:24px;">
+    <span class="callout-icon">📊</span>
+    <div class="callout-text">
+      <strong>Universal cross-platform SEO rule:</strong> Same product, said in different ways, with keywords adapted for each platform. Never copy and paste the same caption to TikTok, Instagram, YouTube, and Facebook — each has its own search index.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 11 — 90-DAY PLAN -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="plano">
+  <div class="section-header">
+    <p class="section-num">Module 11 · Execution</p>
+    <h2 class="section-title">90-Day Plan — From Setup to Income</h2>
+    <p class="section-desc">Exact sequence of actions organized by week. Don't skip steps — each phase sets up the next.</p>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-line">
+        <div class="tl-dot" style="background:var(--pink-dim);color:var(--pink);border:2px solid var(--pink);">1</div>
+      </div>
+      <div class="tl-content">
+        <h3>Week 1 — Complete Setup</h3>
+        <p>Before creating any content, configure your entire infrastructure.</p>
+        <ul class="tl-tasks">
+          <li>Install Dolphin Anty + configure 2–3 profiles with residential proxies</li>
+          <li>Create TikTok accounts in Dolphin profiles — warm up for 3 days (consume, don't post)</li>
+          <li>Download CapCut (mobile + desktop) and Descript — create test projects</li>
+          <li>Open accounts on Impact.com, ShareASale, and LTK</li>
+          <li>Apply for: TikTok Shop Affiliate, LTK, Amazon Associates</li>
+          <li>Define the niche of each account — create optimized bios</li>
+          <li>Set up link in bio (LTK or Linktree) with affiliate links ready to go</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-line">
+        <div class="tl-dot" style="background:var(--gold-dim);color:var(--gold);border:2px solid var(--gold);">2</div>
+      </div>
+      <div class="tl-content">
+        <h3>Week 2 — First Videos + New Affiliates</h3>
+        <p>Consistent posting starts here. Use the Hook→Demo→Proof→CTA formula in every video.</p>
+        <ul class="tl-tasks">
+          <li>Post 1–2 videos per day on each active account (with TikTok Shop product pinned)</li>
+          <li>Record on smartphone → edit in Descript → finish in CapCut → publish</li>
+          <li>Apply for TULA Skincare (Impact.com) and Alpyn Beauty (ShareASale)</li>
+          <li>Use ChatGPT to generate hooks and scripts — test at least 3 types of openings</li>
+          <li>Reply to every comment within the first 30 min after each post</li>
+          <li>Do 2 Stitches of viral niche videos during the week</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-line">
+        <div class="tl-dot" style="background:var(--teal-dim);color:var(--teal);border:2px solid var(--teal);">3</div>
+      </div>
+      <div class="tl-content">
+        <h3>Week 3 — Ulta UBCreates + CapCut Affiliate</h3>
+        <p>Add the slower-approval programs while your content is already running.</p>
+        <ul class="tl-tasks">
+          <li>Apply for Ulta UBCreates (Rakuten / Impact) — process can take 1–2 weeks</li>
+          <li>Apply for CapCut Pro affiliate (Impact.com) — create 1 "how I edit my videos" video</li>
+          <li>Analyze early data: which hook type got the most watch time? Replicate it</li>
+          <li>Distribute top-performing videos to Instagram Reels and YouTube Shorts</li>
+          <li>Optimize SEO for each platform following Module 10</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-line">
+        <div class="tl-dot" style="background:var(--blue-dim);color:var(--blue);border:2px solid var(--blue);">4</div>
+      </div>
+      <div class="tl-content">
+        <h3>Weeks 4–8 — Consistency and Optimization</h3>
+        <p>Learning phase. Data from the first weeks will show you what works.</p>
+        <ul class="tl-tasks">
+          <li>Identify the 3 video formats that converted best → double production of those</li>
+          <li>Pause formats that got no results after 10+ videos</li>
+          <li>Test 1 new product per week on TikTok Shop — keep the ones that sell</li>
+          <li>Reach 1,000 followers on at least 1 account (TikTok Shop requires 1K)</li>
+          <li>Start a recurring series ("Weekly Skincare", "Find of the Week") — builds audience loyalty</li>
+          <li>Start collecting conversion data per affiliate program — cut the ones that don't convert</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-line">
+        <div class="tl-dot" style="background:var(--purple-dim);color:var(--purple);border:2px solid var(--purple);">5</div>
+      </div>
+      <div class="tl-content">
+        <h3>Month 2–3 — Scale What Works</h3>
+        <p>Don't scale before you have data. With 30–60 days of data, you know what works.</p>
+        <ul class="tl-tasks">
+          <li>Apply for Sigma Beauty (ShareASale) on the makeup account — when it has traction</li>
+          <li>Increase posting frequency in the best-performing niches</li>
+          <li>Outsource parts of the workflow: thumbnails, basic editing, calendar (use Fiverr freelancers)</li>
+          <li>Negotiate direct brand deals with brands you already promote organically</li>
+          <li>Reinvest first commissions into better proxies and more Dolphin profiles</li>
+          <li>Goal: first passive income from recurring affiliates (TULA subscriptions, CapCut Pro recurring)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:40px;background:linear-gradient(135deg,#1a0a14,#0a0a1a);border:1px solid rgba(255,45,141,.3);border-radius:16px;padding:40px;text-align:center;">
+    <div style="font-size:36px;margin-bottom:12px;">💄</div>
+    <h3 style="font-family:'Syne',sans-serif;font-size:24px;font-weight:800;margin-bottom:8px;">You have the complete map.</h3>
+    <p style="color:var(--muted);font-size:15px;max-width:480px;margin:0 auto 24px;">From Dolphin Anty setup to your first commission. Execute in order, measure the results, scale what works.</p>
+    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+      <a href="#ferramentas" style="padding:10px 20px;background:var(--pink);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;">Start: Tools →</a>
+      <a href="#plano" style="padding:10px 20px;background:var(--surface2);color:var(--text);border:1px solid var(--border2);border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;">View 90-Day Plan</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+function toggleStep(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.step-chevron');
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.step-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.step-chevron').forEach(c => c.style.transform = '');
+  if (!isOpen) {
+    body.classList.add('open');
+    chevron.style.transform = 'rotate(180deg)';
+  }
+}
+
+// Active nav on scroll
+const sections = document.querySelectorAll('section[id]');
+const navItems = document.querySelectorAll('.nav-item');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 80) cur = s.getAttribute('id');
+  });
+  navItems.forEach(n => {
+    n.classList.toggle('active', n.getAttribute('href') === '#' + cur);
+  });
+});
+</script>
+<script>
+(function () {
+  const SECRET_KEY = 'creator2026';
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('key') === SECRET_KEY || params.get('redirect_status') === 'succeeded') {
+    localStorage.setItem('beauty-creator-paid', 'true');
+    history.replaceState(null, '', window.location.pathname);
+  } else if (localStorage.getItem('beauty-creator-paid') !== 'true') {
+    window.location.replace('beauty-creator-course.html');
+  }
+})();
+</script>
+</body>
+</html>

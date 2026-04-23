@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#111"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e8579a"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e8579a"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid lines -->
+  <g opacity="0.04" stroke="#fff" stroke-width="1">
+    <line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#accent)"/>
+
+  <!-- Top-left badge -->
+  <rect x="60" y="55" width="160" height="32" rx="16" fill="url(#badge)" opacity="0.9"/>
+  <text x="140" y="76" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="1">STEP-BY-STEP COURSE</text>
+
+  <!-- Main headline -->
+  <text x="60" y="175" font-family="Arial, sans-serif" font-size="64" font-weight="800" fill="#fff" letter-spacing="-1">Beauty Creator</text>
+  <text x="60" y="255" font-family="Arial, sans-serif" font-size="64" font-weight="800" fill="url(#accent)" letter-spacing="-1">Blueprint</text>
+
+  <!-- Subheadline -->
+  <text x="60" y="320" font-family="Arial, sans-serif" font-size="24" fill="#aaa" font-weight="400">TikTok Shop · Affiliate Programs · Viral Content</text>
+
+  <!-- Divider -->
+  <rect x="60" y="355" width="80" height="4" rx="2" fill="url(#accent)"/>
+
+  <!-- Module pills -->
+  <rect x="60" y="388" width="130" height="36" rx="18" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  <text x="125" y="411" font-family="Arial, sans-serif" font-size="13" fill="#ccc" text-anchor="middle">11 Modules</text>
+
+  <rect x="204" y="388" width="160" height="36" rx="18" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  <text x="284" y="411" font-family="Arial, sans-serif" font-size="13" fill="#ccc" text-anchor="middle">8 Affiliate Programs</text>
+
+  <rect x="378" y="388" width="160" height="36" rx="18" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  <text x="458" y="411" font-family="Arial, sans-serif" font-size="13" fill="#ccc" text-anchor="middle">4 SEO Platforms</text>
+
+  <rect x="552" y="388" width="130" height="36" rx="18" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  <text x="617" y="411" font-family="Arial, sans-serif" font-size="13" fill="#ccc" text-anchor="middle">Lifetime Access</text>
+
+  <!-- Price tag -->
+  <rect x="60" y="455" width="130" height="56" rx="12" fill="url(#badge)"/>
+  <text x="125" y="476" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" text-anchor="middle" font-weight="600">GET IT FOR</text>
+  <text x="125" y="503" font-family="Arial, sans-serif" font-size="28" fill="#fff" text-anchor="middle" font-weight="800">$12</text>
+
+  <!-- Right side - course preview mockup -->
+  <rect x="720" y="60" width="420" height="510" rx="16" fill="#111" stroke="#222" stroke-width="1"/>
+
+  <!-- Mockup header -->
+  <rect x="720" y="60" width="420" height="44" rx="16" fill="#161616"/>
+  <rect x="720" y="88" width="420" height="16" fill="#161616"/>
+  <circle cx="748" cy="82" r="6" fill="#ff5f57"/>
+  <circle cx="768" cy="82" r="6" fill="#ffbd2e"/>
+  <circle cx="788" cy="82" r="6" fill="#28c940"/>
+  <text x="900" y="87" font-family="Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">beautycreatorblueprint.com/course</text>
+
+  <!-- Mockup sidebar -->
+  <rect x="720" y="104" width="120" height="466" rx="0 0 0 16" fill="#0f0f0f"/>
+
+  <!-- Sidebar items -->
+  <rect x="732" y="120" width="96" height="28" rx="6" fill="#e8579a" opacity="0.15"/>
+  <rect x="740" y="131" width="50" height="6" rx="3" fill="#e8579a" opacity="0.8"/>
+
+  <rect x="740" y="162" width="60" height="5" rx="2.5" fill="#333"/>
+  <rect x="740" y="178" width="70" height="5" rx="2.5" fill="#333"/>
+  <rect x="740" y="194" width="55" height="5" rx="2.5" fill="#333"/>
+  <rect x="740" y="210" width="65" height="5" rx="2.5" fill="#333"/>
+  <rect x="740" y="226" width="58" height="5" rx="2.5" fill="#333"/>
+  <rect x="740" y="242" width="72" height="5" rx="2.5" fill="#333"/>
+  <rect x="740" y="258" width="60" height="5" rx="2.5" fill="#333"/>
+  <rect x="740" y="274" width="68" height="5" rx="2.5" fill="#333"/>
+  <rect x="740" y="290" width="55" height="5" rx="2.5" fill="#333"/>
+  <rect x="740" y="306" width="70" height="5" rx="2.5" fill="#333"/>
+  <rect x="740" y="322" width="62" height="5" rx="2.5" fill="#333"/>
+
+  <!-- Main content area -->
+  <rect x="852" y="112" width="276" height="32" rx="4" fill="#161616"/>
+  <rect x="864" y="120" width="140" height="8" rx="4" fill="#e8579a" opacity="0.7"/>
+  <rect x="864" y="133" width="100" height="6" rx="3" fill="#333"/>
+
+  <rect x="852" y="154" width="276" height="22" rx="4" fill="#161616"/>
+  <rect x="864" y="162" width="80" height="6" rx="3" fill="#555"/>
+
+  <rect x="852" y="186" width="276" height="22" rx="4" fill="#161616"/>
+  <rect x="864" y="194" width="110" height="6" rx="3" fill="#555"/>
+
+  <rect x="852" y="218" width="276" height="22" rx="4" fill="#161616"/>
+  <rect x="864" y="226" width="95" height="6" rx="3" fill="#555"/>
+
+  <rect x="852" y="258" width="276" height="60" rx="8" fill="#1a0a0f" stroke="#e8579a" stroke-width="1" opacity="0.6"/>
+  <rect x="864" y="270" width="120" height="6" rx="3" fill="#e8579a" opacity="0.5"/>
+  <rect x="864" y="283" width="200" height="5" rx="2.5" fill="#333"/>
+  <rect x="864" y="295" width="160" height="5" rx="2.5" fill="#333"/>
+
+  <rect x="852" y="334" width="276" height="22" rx="4" fill="#161616"/>
+  <rect x="864" y="342" width="130" height="6" rx="3" fill="#555"/>
+
+  <rect x="852" y="366" width="276" height="22" rx="4" fill="#161616"/>
+  <rect x="864" y="374" width="90" height="6" rx="3" fill="#555"/>
+
+  <rect x="852" y="406" width="276" height="80" rx="8" fill="#0f1a0f" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+  <rect x="864" y="418" width="100" height="6" rx="3" fill="#22c55e" opacity="0.5"/>
+  <rect x="864" y="431" width="220" height="5" rx="2.5" fill="#333"/>
+  <rect x="864" y="443" width="180" height="5" rx="2.5" fill="#333"/>
+  <rect x="864" y="455" width="200" height="5" rx="2.5" fill="#333"/>
+
+  <!-- Bottom tagline -->
+  <text x="60" y="580" font-family="Arial, sans-serif" font-size="16" fill="#555">Build your income as a beauty creator — tools, strategy, and step-by-step execution.</text>
+</svg>
