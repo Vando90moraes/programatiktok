@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /curso
+Disallow: /beauty
+Disallow: /bonus-dolphin
+
+Sitemap: https://programatiktok.vercel.app/sitemap.xml

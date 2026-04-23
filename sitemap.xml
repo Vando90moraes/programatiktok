@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
-    <loc>https://vando90moraes.github.io/programatiktok/</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://programatiktok.vercel.app/beauty-creator-course</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+
   <url>
-    <loc>https://vando90moraes.github.io/programatiktok/beauty-sales.html</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://programatiktok.vercel.app/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://programatiktok.vercel.app/beauty-sales</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://programatiktok.vercel.app/planner</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>
