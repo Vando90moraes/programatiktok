@@ -32,7 +32,8 @@
     }
   ],
   "rewrites": [
-    { "source": "/course", "destination": "/curso.html" },
-    { "source": "/buy",    "destination": "/beauty-creator-course.html" }
+    { "source": "/course",  "destination": "/curso.html" },
+    { "source": "/buy",     "destination": "/beauty-creator-course.html" },
+    { "source": "/planner", "destination": "/planner-sales.html" }
   ]
 }

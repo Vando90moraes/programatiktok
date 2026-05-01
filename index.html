@@ -1,31 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Plano completo para crescer do zero a 5k seguidores no TikTok e monetizar com TikTok Shop. Checklist interativo com 40+ tarefas por apenas $4.">
-  <meta name="keywords" content="tiktok, crescimento tiktok, monetizar tiktok, tiktok shop, afiliados tiktok, estratégia tiktok, como crescer no tiktok, tiktok shop afiliado">
-  <meta property="og:title" content="TikTok Growth Planner 🚀 — Plano Completo por $4">
-  <meta property="og:description" content="Plano completo para crescer do zero a 5k seguidores no TikTok e monetizar com TikTok Shop. Checklist interativo com 40+ tarefas.">
+  <title>programatiktok — TikTok Creator Tools & Guides</title>
+  <meta name="description" content="Tools and guides for creators who monetize on TikTok. TikTok Growth Planner ($4) and Beauty Creator Blueprint ($12) — affiliate income, TikTok Shop, Dolphin Anty.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://programatiktok.com/">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vando90moraes.github.io/programatiktok/">
-  <meta property="og:image" content="https://vando90moraes.github.io/programatiktok/og-image.png">
-  <title>TikTok Growth Planner 🚀 — Plano Completo por $4</title>
+  <meta property="og:title" content="programatiktok — TikTok Creator Tools & Guides">
+  <meta property="og:description" content="Tools and guides for creators who monetize on TikTok. Growth Planner $4 · Beauty Creator Blueprint $12.">
+  <meta property="og:url" content="https://programatiktok.com/">
+  <meta property="og:site_name" content="programatiktok">
   <style>
     :root {
       --pink: #ff2d55;
       --pink-light: #ff6b87;
       --cyan: #00f2ea;
       --dark: #010101;
-      --dark2: #1a1a2e;
-      --dark3: #16213e;
-      --card: #0f3460;
       --card2: #1a1a40;
       --text: #e8e8f0;
-      --text-muted: #9999bb;
+      --muted: #9999bb;
       --green: #00e676;
       --yellow: #ffd600;
-      --purple: #7c4dff;
       --radius: 16px;
     }
 
@@ -44,45 +41,39 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse at 20% 20%, rgba(255,45,85,.18) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(0,242,234,.12) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(124,77,255,.1) 0%, transparent 70%);
+        radial-gradient(ellipse at 20% 20%, rgba(255,45,85,.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(0,242,234,.10) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(124,77,255,.08) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
 
     .container {
-      max-width: 720px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 0 20px 80px;
       position: relative;
       z-index: 1;
     }
 
-    /* ── Hero ── */
+    /* ── Header ── */
     header {
       text-align: center;
-      padding: 60px 20px 40px;
+      padding: 64px 20px 48px;
     }
 
-    .badge-top {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,45,85,.15);
-      border: 1px solid rgba(255,45,85,.3);
-      border-radius: 100px;
-      padding: 6px 18px;
-      font-size: .78rem;
+    .site-brand {
+      font-size: 1.05rem;
       font-weight: 700;
-      color: var(--pink-light);
-      letter-spacing: .5px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
+      letter-spacing: .08em;
+      text-transform: lowercase;
+      color: var(--muted);
+      margin-bottom: 28px;
     }
+    .site-brand span { color: var(--pink); }
 
-    .logo {
-      font-size: 3rem;
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 900;
       background: linear-gradient(135deg, var(--pink), var(--cyan));
       -webkit-background-clip: text;
@@ -90,193 +81,242 @@
       background-clip: text;
       letter-spacing: -1.5px;
       line-height: 1.1;
-      margin-bottom: 8px;
-    }
-    .logo span { -webkit-text-fill-color: white; }
-
-    .headline {
-      font-size: 1.15rem;
-      color: var(--text-muted);
       margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
       line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto;
     }
 
-    .headline strong { color: var(--cyan); -webkit-text-fill-color: var(--cyan); }
-
-    /* ── Preview mockup ── */
-    .preview {
-      background: var(--card2);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding: 24px 28px;
-      margin: 32px 0;
-      text-align: left;
-      position: relative;
-      overflow: hidden;
-    }
-    .preview::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 40%, var(--dark) 100%);
-      pointer-events: none;
-    }
-    .preview-label {
+    /* ── Section label ── */
+    .section-label {
       font-size: .72rem;
       font-weight: 700;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.4px;
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-    .preview-phase {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(255,255,255,.05);
-    }
-    .preview-phase:last-child { border-bottom: none; }
-    .phase-icon {
-      width: 40px; height: 40px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; flex-shrink: 0;
-    }
-    .icon-pink   { background: rgba(255,45,85,.2); }
-    .icon-cyan   { background: rgba(0,242,234,.15); }
-    .icon-purple { background: rgba(124,77,255,.2); }
-    .phase-info h4 { font-size: .92rem; font-weight: 700; color: white; }
-    .phase-info p  { font-size: .78rem; color: var(--text-muted); margin-top: 2px; }
-    .preview-locked {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 20px;
-      z-index: 2;
-      font-size: .85rem;
-      color: var(--text-muted);
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 28px;
     }
 
-    /* ── Bullets ── */
-    .benefits {
-      list-style: none;
-      margin: 28px 0;
+    /* ── Product grid ── */
+    .product-grid {
       display: grid;
-      gap: 12px;
-    }
-    .benefits li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: .93rem;
-      color: var(--text);
-      line-height: 1.5;
-    }
-    .check-icon {
-      width: 22px; height: 22px;
-      background: rgba(0,230,118,.15);
-      border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .7rem; color: var(--green);
-      flex-shrink: 0; margin-top: 1px;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
     }
 
-    /* ── CTA card ── */
-    .cta-card {
+    @media (max-width: 620px) {
+      .product-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Product card ── */
+    .card {
       background: var(--card2);
       border: 1px solid rgba(255,255,255,.08);
       border-radius: 20px;
-      padding: 32px 28px;
-      text-align: center;
-      margin-top: 36px;
+      padding: 28px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color .2s, transform .2s;
+    }
+    .card:hover {
+      border-color: rgba(255,45,85,.3);
+      transform: translateY(-3px);
     }
 
-    .price-wrap {
-      margin-bottom: 24px;
+    .card.featured {
+      border-color: rgba(255,45,85,.35);
+      background: linear-gradient(160deg, #1f1040 0%, #1a1a40 100%);
     }
-    .price-old {
-      font-size: .9rem;
-      color: var(--text-muted);
-      text-decoration: line-through;
-      margin-bottom: 4px;
+
+    .card-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+      align-self: flex-start;
     }
-    .price-new {
-      font-size: 3.5rem;
+    .eyebrow-pink {
+      background: rgba(255,45,85,.15);
+      color: var(--pink-light);
+      border: 1px solid rgba(255,45,85,.25);
+    }
+    .eyebrow-cyan {
+      background: rgba(0,242,234,.12);
+      color: var(--cyan);
+      border: 1px solid rgba(0,242,234,.25);
+    }
+
+    .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .card h2 {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: .86rem;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 22px;
+    }
+
+    .card-includes {
+      font-size: .75rem;
+      color: var(--green);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-price {
+      font-size: 2.4rem;
       font-weight: 900;
       background: linear-gradient(135deg, var(--pink), var(--cyan));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       line-height: 1;
-    }
-    .price-sub {
-      font-size: .8rem;
-      color: var(--text-muted);
-      margin-top: 6px;
+      margin-bottom: 4px;
     }
 
-    .btn-buy {
+    .card-price-note {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .btn {
       display: block;
-      width: 100%;
-      padding: 18px 24px;
-      background: linear-gradient(135deg, var(--pink), #c2185b);
-      color: white;
-      border: none;
-      border-radius: 14px;
-      font-size: 1.1rem;
+      text-align: center;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: .95rem;
       font-weight: 800;
-      cursor: pointer;
       text-decoration: none;
       transition: transform .15s, box-shadow .15s;
-      box-shadow: 0 8px 30px rgba(255,45,85,.35);
-      letter-spacing: .3px;
+      letter-spacing: .2px;
     }
-    .btn-buy:hover {
+
+    .btn-pink {
+      background: linear-gradient(135deg, var(--pink), #c2185b);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(255,45,85,.3);
+    }
+    .btn-pink:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(255,45,85,.5);
+      box-shadow: 0 10px 32px rgba(255,45,85,.5);
     }
-    .btn-buy:active { transform: translateY(0); }
 
-    .guarantee {
+    .btn-outline {
+      border: 1px solid rgba(255,45,85,.4);
+      color: var(--pink-light);
+      background: rgba(255,45,85,.07);
+    }
+    .btn-outline:hover {
+      background: rgba(255,45,85,.14);
+      transform: translateY(-2px);
+    }
+
+    /* ── Bonus card (full-width) ── */
+    .bonus-card {
+      background: rgba(0,229,160,.05);
+      border: 1px solid rgba(0,229,160,.18);
+      border-radius: 20px;
+      padding: 24px 28px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 16px;
-      font-size: .78rem;
-      color: var(--text-muted);
+      gap: 20px;
+      margin-top: 0;
     }
-    .guarantee span { color: var(--green); font-size: .9rem; }
 
-    /* ── Social proof ── */
-    .social-proof {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 20px;
-      font-size: .78rem;
-      color: var(--text-muted);
+    .bonus-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
     }
-    .stars { color: var(--yellow); letter-spacing: 1px; font-size: .85rem; }
+
+    .bonus-body { flex: 1; }
+
+    .bonus-eyebrow {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+      color: #00e5a0;
+      margin-bottom: 6px;
+    }
+
+    .bonus-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .bonus-body p {
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .btn-bonus {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: .82rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      background: rgba(0,229,160,.12);
+      border: 1px solid rgba(0,229,160,.3);
+      color: #00e5a0;
+      transition: background .15s, transform .15s;
+    }
+    .btn-bonus:hover {
+      background: rgba(0,229,160,.2);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 480px) {
+      .bonus-card { flex-direction: column; align-items: flex-start; }
+      .btn-bonus { align-self: stretch; text-align: center; }
+    }
 
     /* ── Footer ── */
     footer {
       text-align: center;
-      padding: 40px 20px;
-      color: var(--text-muted);
+      padding: 48px 20px 24px;
+      color: var(--muted);
       font-size: .78rem;
     }
-
-    @media (max-width: 600px) {
-      .logo { font-size: 2.2rem; }
-      .price-new { font-size: 2.8rem; }
-      .cta-card { padding: 24px 20px; }
-      header { padding: 40px 20px 28px; }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
     }
+    footer a:hover { color: var(--pink-light); }
   </style>
 </head>
 <body>
@@ -284,192 +324,56 @@
 <div class="container">
 
   <header>
-    <div class="badge-top">🔥 Oferta especial</div>
-    <div class="logo">TikTok<span>Growth</span> 🚀</div>
-    <p class="headline">
-      O plano passo a passo para <strong>crescer do zero a 5k seguidores</strong>
-      e monetizar com TikTok Shop — tudo em um checklist interativo.
-    </p>
+    <div class="site-brand">programa<span>tiktok</span>.com</div>
+    <h1 class="hero-title">Grow. Monetize.<br>Scale on TikTok.</h1>
+    <p class="hero-sub">Practical tools and guides for creators ready to build real income on TikTok Shop.</p>
   </header>
 
-  <!-- Preview bloqueado -->
-  <div class="preview">
-    <div class="preview-label">O que você vai desbloquear</div>
-    <div class="preview-phase">
-      <div class="phase-icon icon-pink">📈</div>
-      <div class="phase-info">
-        <h4>Fase 1 — Crescer para 5.000 Seguidores</h4>
-        <p>Nicho, perfil, frequência, sons, trends e engajamento</p>
-      </div>
+  <div class="section-label">Our Products</div>
+
+  <div class="product-grid">
+
+    <!-- TikTok Growth Planner -->
+    <div class="card">
+      <div class="card-eyebrow eyebrow-pink">Quick Start</div>
+      <div class="card-icon">🚀</div>
+      <h2>TikTok Growth Planner</h2>
+      <p>Interactive checklist with 40+ tasks organized in 3 phases. Grow from 0 to 5k followers and land your first TikTok Shop commissions — step by step, nothing missing.</p>
+      <div class="card-price">$4</div>
+      <div class="card-price-note">one-time · lifetime access</div>
+      <a href="/planner" class="btn btn-outline">Get the Planner →</a>
     </div>
-    <div class="preview-phase">
-      <div class="phase-icon icon-cyan">🛒</div>
-      <div class="phase-info">
-        <h4>Fase 2 — TikTok Shop Afiliado</h4>
-        <p>Cadastro, escolha de produtos e inserção nos vídeos</p>
-      </div>
+
+    <!-- Beauty Creator Blueprint -->
+    <div class="card featured">
+      <div class="card-eyebrow eyebrow-cyan">Most Complete</div>
+      <div class="card-icon">💄</div>
+      <h2>Beauty Creator Blueprint</h2>
+      <p>11-module guide covering TikTok Shop, 8 beauty affiliate programs (Ulta, TULA, Amazon…), Dolphin Anty multi-account setup, CapCut workflow, and a 90-day execution plan.</p>
+      <div class="card-includes">✦ Includes Dolphin Anty bonus guide</div>
+      <div class="card-price">$12</div>
+      <div class="card-price-note">one-time · immediate access</div>
+      <a href="/beauty-creator-course" class="btn btn-pink">Get the Blueprint →</a>
     </div>
-    <div class="preview-phase">
-      <div class="phase-icon icon-purple">🎬</div>
-      <div class="phase-info">
-        <h4>Fase 3 — Conteúdo Viral que Vende</h4>
-        <p>Roteiros, formatos, CTAs e trends para monetizar</p>
-      </div>
-    </div>
-    <div class="preview-locked">🔒 Desbloqueie por apenas $4</div>
+
   </div>
 
-  <!-- Benefícios -->
-  <ul class="benefits">
-    <li>
-      <div class="check-icon">✓</div>
-      <span><strong>+40 tarefas</strong> organizadas em 3 fases com progresso visual em tempo real</span>
-    </li>
-    <li>
-      <div class="check-icon">✓</div>
-      <span>Estratégias de <strong>nicho, algoritmo, sounds e hashtags</strong> que funcionam agora</span>
-    </li>
-    <li>
-      <div class="check-icon">✓</div>
-      <span>Guia completo do <strong>TikTok Shop Afiliado</strong> — do cadastro à primeira comissão</span>
-    </li>
-    <li>
-      <div class="check-icon">✓</div>
-      <span>Fórmula dos <strong>3 segundos de gancho</strong> para reter o espectador e vender sem parecer propaganda</span>
-    </li>
-    <li>
-      <div class="check-icon">✓</div>
-      <span>Progresso <strong>salvo automaticamente</strong> no seu navegador — retome de onde parou</span>
-    </li>
-    <li>
-      <div class="check-icon">✓</div>
-      <span>Acesso <strong>vitalício</strong> — paga uma vez, usa para sempre</span>
-    </li>
-  </ul>
-
-  <!-- CTA -->
-  <div class="cta-card">
-    <div class="price-wrap">
-      <div class="price-old">De $19</div>
-      <div class="price-new">$4</div>
-      <div class="price-sub">pagamento único · acesso imediato</div>
+  <!-- Dolphin Anty Bonus -->
+  <div class="bonus-card">
+    <div class="bonus-icon">🐬</div>
+    <div class="bonus-body">
+      <div class="bonus-eyebrow">Bonus · Included with Blueprint</div>
+      <h3>Dolphin Anty — Multi-Account TikTok Shop</h3>
+      <p>Complete guide to managing multiple TikTok accounts safely using Dolphin Anty browser profiles. Free with your Beauty Creator Blueprint purchase.</p>
     </div>
-
-    <a href="https://buy.stripe.com/aFa4gBfua2rGfN56MxcV201" class="btn-buy">
-      🔓 Desbloquear agora por $4
-    </a>
-
-    <div class="guarantee">
-      <span>🛡️</span> Garantia de 7 dias — sem perguntas
-    </div>
-
-    <div class="social-proof">
-      <span class="stars">★★★★★</span>
-      &nbsp;Pagamento seguro via Stripe
-    </div>
+    <a href="/beauty-creator-course" class="btn-bonus">Included with Blueprint →</a>
   </div>
 
 </div>
 
 <footer>
-  © 2026 TikTokGrowth · <span id="footer-tagline">Feito para criadores que levam o crescimento a sério 🖤</span>
+  <p>© 2026 programatiktok.com · <a href="/beauty-creator-course">Beauty Creator Blueprint</a> · <a href="/planner">Growth Planner</a></p>
 </footer>
 
-<script>
-  // Se já pagou, vai direto pro planner
-  if (localStorage.getItem('tiktok-paid') === 'true') {
-    window.location.replace('planner.html');
-  }
-
-  const i18n = {
-    en: {
-      badge: '🔥 Special offer',
-      headline: 'The step-by-step plan to <strong>grow from zero to 5k followers</strong> and monetize with TikTok Shop — all in one interactive checklist.',
-      preview_label: 'What you will unlock',
-      phase1_h: 'Phase 1 — Grow to 5,000 Followers',
-      phase1_p: 'Niche, profile, frequency, sounds, trends and engagement',
-      phase2_h: 'Phase 2 — TikTok Shop Affiliate',
-      phase2_p: 'Registration, product selection and video integration',
-      phase3_h: 'Phase 3 — Viral Content That Sells',
-      phase3_p: 'Scripts, formats, CTAs and trends to monetize',
-      locked: '🔒 Unlock for only $4',
-      b1: '<strong>+40 tasks</strong> organized in 3 phases with real-time visual progress',
-      b2: 'Strategies for <strong>niche, algorithm, sounds and hashtags</strong> that work now',
-      b3: 'Complete guide to <strong>TikTok Shop Affiliate</strong> — from registration to first commission',
-      b4: '<strong>3-second hook formula</strong> to retain viewers and sell without looking like an ad',
-      b5: 'Progress <strong>saved automatically</strong> in your browser — resume where you left off',
-      b6: '<strong>Lifetime access</strong> — pay once, use forever',
-      price_old: 'From $19',
-      price_sub: 'one-time payment · immediate access',
-      btn: '🔓 Unlock now for $4',
-      guarantee: '7-day guarantee — no questions asked',
-      stripe: 'Secure payment via Stripe',
-      footer: 'Made for creators who take growth seriously 🖤',
-    },
-    fr: {
-      badge: '🔥 Offre spéciale',
-      headline: 'Le plan étape par étape pour <strong>passer de zéro à 5k abonnés</strong> et monétiser avec TikTok Shop — tout dans une checklist interactive.',
-      preview_label: 'Ce que vous allez débloquer',
-      phase1_h: 'Phase 1 — Atteindre 5 000 abonnés',
-      phase1_p: 'Niche, profil, fréquence, sons, tendances et engagement',
-      phase2_h: 'Phase 2 — TikTok Shop Affilié',
-      phase2_p: 'Inscription, sélection de produits et intégration vidéo',
-      phase3_h: 'Phase 3 — Contenu Viral qui Vend',
-      phase3_p: 'Scripts, formats, CTAs et tendances pour monétiser',
-      locked: '🔒 Débloquez pour seulement $4',
-      b1: '<strong>+40 tâches</strong> organisées en 3 phases avec progression visuelle en temps réel',
-      b2: 'Stratégies de <strong>niche, algorithme, sons et hashtags</strong> qui fonctionnent maintenant',
-      b3: 'Guide complet du <strong>TikTok Shop Affilié</strong> — de l\'inscription à la première commission',
-      b4: '<strong>Formule du crochet de 3 secondes</strong> pour retenir les spectateurs et vendre sans paraître publicitaire',
-      b5: 'Progression <strong>enregistrée automatiquement</strong> dans votre navigateur — reprenez où vous en étiez',
-      b6: '<strong>Accès à vie</strong> — payez une fois, utilisez pour toujours',
-      price_old: 'De $19',
-      price_sub: 'paiement unique · accès immédiat',
-      btn: '🔓 Débloquer maintenant pour $4',
-      guarantee: 'Garantie 7 jours — sans questions',
-      stripe: 'Paiement sécurisé via Stripe',
-      footer: 'Fait pour les créateurs qui prennent la croissance au sérieux 🖤',
-    },
-  };
-
-  function getLang() {
-    const l = navigator.language || 'pt';
-    if (l.startsWith('en')) return 'en';
-    if (l.startsWith('fr')) return 'fr';
-    return null; // PT is default (already in HTML)
-  }
-
-  function applyLang() {
-    const lang = getLang();
-    if (!lang) return; // PT already rendered
-    const t = i18n[lang];
-    document.querySelector('.badge-top').innerHTML = t.badge;
-    document.querySelector('.headline').innerHTML = t.headline;
-    document.querySelector('.preview-label').textContent = t.preview_label;
-    const phases = document.querySelectorAll('.preview-phase .phase-info');
-    phases[0].querySelector('h4').textContent = t.phase1_h;
-    phases[0].querySelector('p').textContent  = t.phase1_p;
-    phases[1].querySelector('h4').textContent = t.phase2_h;
-    phases[1].querySelector('p').textContent  = t.phase2_p;
-    phases[2].querySelector('h4').textContent = t.phase3_h;
-    phases[2].querySelector('p').textContent  = t.phase3_p;
-    document.querySelector('.preview-locked').textContent = t.locked;
-    const bullets = document.querySelectorAll('.benefits li span');
-    bullets[0].innerHTML = t.b1;
-    bullets[1].innerHTML = t.b2;
-    bullets[2].innerHTML = t.b3;
-    bullets[3].innerHTML = t.b4;
-    bullets[4].innerHTML = t.b5;
-    bullets[5].innerHTML = t.b6;
-    document.querySelector('.price-old').textContent = t.price_old;
-    document.querySelector('.price-sub').textContent = t.price_sub;
-    document.querySelector('.btn-buy').textContent   = t.btn;
-    document.querySelector('.guarantee').innerHTML   = '<span>🛡️</span> ' + t.guarantee;
-    document.querySelector('.social-proof').innerHTML = '<span class="stars">★★★★★</span>&nbsp;' + t.stripe;
-    document.getElementById('footer-tagline').textContent = t.footer;
-  }
-
-  document.addEventListener('DOMContentLoaded', applyLang);
-</script>
 </body>
 </html>
