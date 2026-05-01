@@ -23,6 +23,14 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "programatiktok.vercel.app" }],
+      "destination": "https://programatiktok.com/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/course", "destination": "/curso.html" },
     { "source": "/buy",    "destination": "/beauty-creator-course.html" }

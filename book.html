@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Beauty Creator Blueprint — Book</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Merriweather+Sans:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+/* ── PRINT PAGE SETUP (6×9 KDP standard) ── */
+@page {
+  size: 6in 9in;
+  margin-top: 0.75in;
+  margin-bottom: 0.75in;
+  margin-left: 0.875in;
+  margin-right: 0.625in;
+}
+@page :left  { margin-left: 0.625in; margin-right: 0.875in; }
+@page :right { margin-left: 0.875in; margin-right: 0.625in; }
+
+/* ── BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 11pt; }
+body {
+  font-family: 'Merriweather', Georgia, serif;
+  color: #111;
+  line-height: 1.65;
+  background: #F9F7F4;
+  max-width: 6in;
+  margin: 0 auto;
+  padding: 0.5in;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── SCREEN PREVIEW (not printed) ── */
+@media screen {
+  body { max-width: 6.5in; margin: 40px auto; padding: 0.875in 0.75in; box-shadow: 0 2px 24px rgba(0,0,0,.12); }
+  .page-break { border-top: 2px dashed #eee; margin: 60px 0; padding-top: 60px; }
+}
+
+/* ── PRINT ── */
+@media print {
+  .page-break { page-break-before: always; }
+  .no-break    { page-break-inside: avoid; }
+  a { color: inherit; text-decoration: none; }
+  .screen-only { display: none; }
+  body {
+    max-width: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #F9F7F4;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* ── TITLE PAGE ── */
+.title-page {
+  height: 7.25in;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  border-top: 6px solid #c0185a;
+  border-bottom: 1px solid #D9D2CA;
+}
+.title-eyebrow {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 9pt;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #c0185a;
+  margin-bottom: 20px;
+}
+.title-main {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 40pt;
+  font-weight: 900;
+  line-height: 1.05;
+  color: #111;
+  margin-bottom: 10px;
+}
+.title-sub {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 12pt;
+  font-weight: 300;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 40px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+.title-rule {
+  width: 60px;
+  height: 4px;
+  background: #c0185a;
+  border: none;
+  margin-bottom: 40px;
+}
+.title-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 60px;
+}
+.stat-block { text-align: left; }
+.stat-num {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 24pt;
+  font-weight: 800;
+  color: #c0185a;
+  line-height: 1;
+}
+.stat-label { font-size: 8pt; color: #777; text-transform: uppercase; letter-spacing: .1em; }
+.title-author {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 10pt;
+  color: #999;
+  margin-top: auto;
+}
+
+/* ── COPYRIGHT ── */
+.copyright-page {
+  font-size: 9pt;
+  color: #555;
+  line-height: 1.9;
+}
+.copyright-page h2 {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 10pt;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+/* ── TOC ── */
+.toc h2 {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 18pt;
+  font-weight: 800;
+  margin-bottom: 32px;
+  color: #111;
+}
+.toc-section { margin-bottom: 8px; }
+.toc-section-title {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 8pt;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #c0185a;
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+.toc-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 10pt;
+}
+.toc-num {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 8pt;
+  font-weight: 700;
+  color: #c0185a;
+  min-width: 24px;
+}
+.toc-title { flex: 1; }
+.toc-dots {
+  flex: 1;
+  border-bottom: 1px dotted #ccc;
+  margin: 0 6px 4px;
+}
+
+/* ── CHAPTER OPENER ── */
+.chapter-opener {
+  padding: 28px 0 28px;
+  border-top: 4px solid #c0185a;
+  border-bottom: 1px solid #D9D2CA;
+  margin-bottom: 34px;
+}
+.ch-num {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 7.5pt;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #c0185a;
+  margin-bottom: 14px;
+  display: block;
+}
+.ch-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26pt;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #111;
+  margin-bottom: 14px;
+}
+.ch-desc {
+  font-size: 10.5pt;
+  color: #555;
+  line-height: 1.65;
+  max-width: 88%;
+  font-style: italic;
+}
+
+/* ── HEADINGS ── */
+h3 {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 12.5pt;
+  font-weight: 700;
+  color: #111;
+  margin: 30px 0 10px;
+  border-bottom: 1px solid #E0D8D0;
+  padding-bottom: 5px;
+}
+h4 {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 11pt;
+  font-weight: 700;
+  color: #333;
+  margin: 20px 0 8px;
+}
+
+/* ── BODY TEXT ── */
+p { margin-bottom: 14px; }
+ul, ol { padding-left: 22px; margin-bottom: 14px; }
+li { margin-bottom: 5px; line-height: 1.65; }
+strong { font-weight: 700; }
+em { font-style: italic; }
+code {
+  font-family: 'Courier New', monospace;
+  font-size: 9.5pt;
+  background: #EDE8E2;
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: #a31450;
+}
+
+/* ── CALLOUT BOX ── */
+.callout {
+  border-left: 4px solid #c0185a;
+  background: #FBF0F4;
+  padding: 13px 18px;
+  border-radius: 0 6px 6px 0;
+  margin: 20px 0;
+  font-size: 10.5pt;
+}
+.callout.tip  { border-color: #c2770a; background: #FEF9EE; }
+.callout.note { border-color: #0369a1; background: #EFF7FF; }
+.callout strong { display: block; margin-bottom: 5px; font-size: 9pt; text-transform: uppercase; letter-spacing: .08em; font-family: 'Merriweather Sans', sans-serif; }
+
+/* ── TABLE ── */
+table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 9.5pt; }
+th {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  text-align: left;
+  padding: 9px 11px;
+  border-bottom: 2px solid #c0185a;
+  background: #EDE8E2;
+}
+td { padding: 9px 11px; border-bottom: 1px solid #E0D8D0; vertical-align: top; }
+tr:nth-child(even) td { background: #FDFCFB; }
+tr:last-child td { border-bottom: none; }
+
+/* ── STEP BOX ── */
+.step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  padding: 16px 18px;
+  border: 1px solid #E0D8D0;
+  border-radius: 8px;
+  background: #FDFCFB;
+}
+.step-badge {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 800;
+  font-size: 9pt;
+  color: #fff;
+  background: #c0185a;
+  min-width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.step-content { flex: 1; }
+.step-content strong { font-family: 'Merriweather Sans', sans-serif; font-size: 11pt; display: block; margin-bottom: 6px; }
+
+/* ── FORMULA BOX ── */
+.formula {
+  text-align: center;
+  padding: 28px;
+  border: 2px solid #c0185a;
+  border-radius: 8px;
+  margin: 24px 0;
+  background: #FBF0F4;
+}
+.formula-line {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 13pt;
+  font-weight: 700;
+  margin: 6px 0;
+}
+.formula-op { font-size: 11pt; color: #999; margin: 2px 0; }
+.formula-result { color: #c0185a; font-size: 15pt; margin-top: 8px; }
+
+/* ── TIMELINE ── */
+.timeline-item { display: flex; gap: 18px; margin-bottom: 28px; }
+.tl-badge {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 800;
+  font-size: 11pt;
+  color: #fff;
+  background: #c0185a;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.tl-body h4 { margin-top: 0; }
+
+/* ── PROMPT BOX ── */
+.prompt {
+  background: #f8f4ff;
+  border-left: 4px solid #7c3aed;
+  padding: 14px 18px;
+  border-radius: 0 6px 6px 0;
+  margin: 16px 0;
+  font-size: 10pt;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+/* ── FINAL PAGE ── */
+.final-page {
+  text-align: center;
+  padding: 60px 0;
+  border-top: 4px solid #c0185a;
+}
+.final-page .big-emoji { font-size: 48pt; margin-bottom: 20px; }
+.final-page h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22pt; font-weight: 700;
+  margin-bottom: 16px;
+}
+.final-page p { color: #555; max-width: 4.5in; margin: 0 auto 12px; }
+
+/* ── SCREEN NAV ── */
+.screen-only {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 9pt;
+  color: #999;
+  text-align: center;
+  padding: 24px;
+  border-top: 1px solid #eee;
+  margin-top: 60px;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ TITLE PAGE ═══════════════ -->
+<div class="title-page">
+  <p class="title-eyebrow">Step-by-Step Guide</p>
+  <h1 class="title-main">Beauty Creator<br>Blueprint</h1>
+  <p class="title-sub">The Complete System for Building<br>Affiliate Income on TikTok Shop</p>
+  <hr class="title-rule">
+  <div class="title-stats">
+    <div class="stat-block"><div class="stat-num">11</div><div class="stat-label">Modules</div></div>
+    <div class="stat-block"><div class="stat-num">8</div><div class="stat-label">Affiliate Programs</div></div>
+    <div class="stat-block"><div class="stat-num">4</div><div class="stat-label">SEO Platforms</div></div>
+    <div class="stat-block"><div class="stat-num">90</div><div class="stat-label">Day Plan</div></div>
+  </div>
+  <p class="title-author">Beauty Creator Blueprint · 2026 Edition</p>
+</div>
+
+<!-- ═══════════════ COPYRIGHT ═══════════════ -->
+<div class="page-break copyright-page">
+  <h2>Copyright Notice</h2>
+  <p>Copyright © 2026 Beauty Creator Blueprint. All rights reserved.</p>
+  <p>No part of this publication may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the publisher, except for brief quotations embodied in critical reviews and certain other non-commercial uses.</p>
+  <p>All affiliate program details, commission rates, and platform features described in this guide reflect data verified as of early 2026. Platform policies and commission structures may change. Always verify current terms directly with each program before applying.</p>
+  <p>This guide is for educational purposes. Results depend on individual effort, niche selection, posting consistency, and market conditions. No income guarantees are made or implied.</p>
+  <p style="margin-top:32px;"><strong>Published by Beauty Creator Blueprint</strong><br>
+  programatiktok.com</p>
+</div>
+
+<!-- ═══════════════ TABLE OF CONTENTS ═══════════════ -->
+<div class="page-break toc">
+  <h2>Contents</h2>
+
+  <div class="toc-section-title">Introduction</div>
+  <div class="toc-item"><span class="toc-num">—</span><span class="toc-title">About This Guide</span></div>
+
+  <div class="toc-section-title">Tools</div>
+  <div class="toc-item"><span class="toc-num">01</span><span class="toc-title">Your Essential Creator Stack</span></div>
+  <div class="toc-item"><span class="toc-num">02</span><span class="toc-title">Dolphin Anty — Multi-Account Without the Ban</span></div>
+  <div class="toc-item"><span class="toc-num">03</span><span class="toc-title">ChatGPT as Your Content Co-Creator</span></div>
+
+  <div class="toc-section-title">Video Production</div>
+  <div class="toc-item"><span class="toc-num">04</span><span class="toc-title">Produce Professional Video in Descript</span></div>
+  <div class="toc-item"><span class="toc-num">05</span><span class="toc-title">Finish and Publish in CapCut</span></div>
+
+  <div class="toc-section-title">Growth</div>
+  <div class="toc-item"><span class="toc-num">06</span><span class="toc-title">Grow to 10K–30K Followers Organically</span></div>
+  <div class="toc-item"><span class="toc-num">07</span><span class="toc-title">TikTok Shop — Register and Monetize</span></div>
+
+  <div class="toc-section-title">Monetization</div>
+  <div class="toc-item"><span class="toc-num">08</span><span class="toc-title">The 8 Beauty Affiliate Programs — Full Analysis</span></div>
+  <div class="toc-item"><span class="toc-num">09</span><span class="toc-title">The Content Formula That Converts</span></div>
+
+  <div class="toc-section-title">SEO & Execution</div>
+  <div class="toc-item"><span class="toc-num">10</span><span class="toc-title">SEO by Platform</span></div>
+  <div class="toc-item"><span class="toc-num">11</span><span class="toc-title">Your 90-Day Execution Plan</span></div>
+</div>
+
+<!-- ═══════════════ INTRODUCTION ═══════════════ -->
+<div class="page-break">
+  <div class="chapter-opener">
+    <p class="ch-num">Introduction</p>
+    <h2 class="ch-title">About This Guide</h2>
+    <p class="ch-desc">Everything you need — from the first tool to the first commission — in one place.</p>
+  </div>
+
+  <p>This guide was built from one frustration: every piece of information about beauty creator monetization exists somewhere on the internet, but scattered across dozens of YouTube videos, Reddit threads, and blog posts that each tell 20% of the story.</p>
+
+  <p>What you have in your hands is the synthesis. Eleven modules that work together as a system — not a collection of tips, but a complete operational blueprint from day one to your first recurring affiliate income.</p>
+
+  <h3>What This Guide Covers</h3>
+  <ul>
+    <li><strong>Tools:</strong> The exact stack — Dolphin Anty, ChatGPT, Descript, CapCut, LTK — why each one, and how to configure them</li>
+    <li><strong>Video production:</strong> The Descript → CapCut workflow, step by step, from recording to publishing</li>
+    <li><strong>Growth:</strong> Organic follower growth using TikTok's algorithm mechanics, not hacks</li>
+    <li><strong>Monetization:</strong> TikTok Shop setup plus 8 affiliate programs with commission rates, cookie windows, and signup order</li>
+    <li><strong>Content strategy:</strong> The 4-act formula (Hook → Demo → Proof → CTA) that converts views to sales</li>
+    <li><strong>SEO:</strong> Platform-specific optimization for TikTok, YouTube, Instagram, and Facebook</li>
+    <li><strong>Execution:</strong> A 90-day week-by-week plan</li>
+  </ul>
+
+  <h3>How to Use This Guide</h3>
+  <p>Follow the chapters in order on your first read. Each module builds on the previous one. The 90-Day Plan in Chapter 11 references all the earlier chapters and gives you the exact sequence to execute everything.</p>
+
+  <div class="callout">
+    <strong>Before You Start</strong>
+    You don't need a large following to begin. You need a phone, a niche, and consistency. This guide shows you the system. You provide the execution.
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 1 ═══════════════ -->
+<div class="page-break">
+  <div class="chapter-opener">
+    <p class="ch-num">Chapter 1 · Tools</p>
+    <h2 class="ch-title">Your Essential Creator Stack</h2>
+    <p class="ch-desc">Before recording any video, set up these 5 tools. They form the minimum operational kit to run a professional beauty creator business.</p>
+  </div>
+
+  <h3>1. Dolphin Anty — Multi-Account Management</h3>
+  <p>An anti-detect browser that simulates unique device profiles. Each TikTok account runs in a separate "virtual computer" — the algorithm sees completely different users, not accounts linked to the same person.</p>
+  <ul>
+    <li>Manage 5+ TikTok accounts simultaneously</li>
+    <li>Each profile has isolated IP, browser fingerprint, and cookies</li>
+    <li>Prevents TikTok from linking your accounts to each other</li>
+    <li>Can automate repetitive actions using Selenium or Puppeteer</li>
+  </ul>
+
+  <h3>2. ChatGPT — Scripts, Captions, and SEO</h3>
+  <p>Use GPT-4 to generate video scripts, create hook variations, optimize descriptions for SEO, and build complete content calendars. The key is knowing exactly which prompts to give it — Chapter 3 covers these in detail.</p>
+  <ul>
+    <li>Generate 10 hook variations for any product in seconds</li>
+    <li>Create optimized 30s/60s scripts in your voice</li>
+    <li>Suggest hashtags by niche and platform</li>
+    <li>Adapt the same content for each social network</li>
+  </ul>
+
+  <h3>3. Descript — Text-Based Video Editing</h3>
+  <p>Auto-transcribes your video and lets you edit it by deleting words — like editing a Word document. Generates captions in seconds and removes filler words with one click.</p>
+  <ul>
+    <li>Auto-transcription in English (and other languages)</li>
+    <li>Remove "uh," "um," and silences with one click</li>
+    <li>Export a clean video file to import into CapCut</li>
+    <li>Generate SRT caption files for YouTube</li>
+  </ul>
+
+  <h3>4. CapCut — Finishing and Publishing</h3>
+  <p>Mobile and desktop video editor natively integrated with TikTok. Apply trending effects, animated text, beauty filters, and publish directly to TikTok without leaving the app.</p>
+  <ul>
+    <li>Viral beauty templates ready to use immediately</li>
+    <li>Automatic skin smoothing and color effects</li>
+    <li>Import video from Descript and finish here</li>
+    <li>Publish directly to TikTok and Instagram Reels</li>
+  </ul>
+
+  <h3>5. LTK (LikeToKnow.it) + Impact.com</h3>
+  <p>LTK centralizes your affiliate links in a single visual storefront. Impact.com is the platform where TULA, CapCut, Ulta, and other major programs live. Set up both before you start posting — you'll need them ready when your first video goes up.</p>
+  <ul>
+    <li>LTK: quick approval, works with any beauty product</li>
+    <li>Impact.com: home of the biggest beauty niche programs (TULA, Alpyn, CapCut, Ulta)</li>
+    <li>One LTK link holds multiple products with individual tracking</li>
+    <li>Detailed reports on clicks, conversions, and commissions per product</li>
+  </ul>
+
+  <div class="callout tip">
+    <strong>Setup Order</strong>
+    Week 1: Install Dolphin Anty, CapCut, and Descript. Create accounts on Impact.com, ShareASale, and LTK. These registrations run in the background while you build your first content.
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 2 ═══════════════ -->
+<div class="page-break">
+  <div class="chapter-opener">
+    <p class="ch-num">Chapter 2 · Dolphin Anty</p>
+    <h2 class="ch-title">Multi-Account Without the Ban</h2>
+    <p class="ch-desc">Step-by-step guide to setting up multiple isolated profiles. Each account operates as if it were a different physical device.</p>
+  </div>
+
+  <div class="callout">
+    <strong>Why This Matters</strong>
+    TikTok detects multi-accounts through browser fingerprint, IP address, and shared cookies. Dolphin Anty creates completely isolated digital identities — TikTok cannot link your accounts to each other.
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">1</span>
+    <div class="step-content">
+      <strong>Install Dolphin Anty and Create an Account</strong>
+      <p>Go to <code>dolphin-anty.com</code> → download for Mac or Windows. Create a free account (free plan: up to 10 profiles). For more accounts, consider the Basic plan ($89/mo) or Team ($159/mo).</p>
+      <ul>
+        <li>Install and log in to the web dashboard</li>
+        <li>Set the language to English for easier navigation</li>
+        <li>Under the <strong>Profiles</strong> tab you will manage all your browser profiles</li>
+      </ul>
+      <div class="callout tip"><strong>Tip:</strong> The free plan is sufficient to test with 2–3 accounts before committing to a paid plan.</div>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">2</span>
+    <div class="step-content">
+      <strong>Set Up Proxies — One Per Account</strong>
+      <p>Each profile must have a different proxy. Use residential proxies (more reliable than datacenter proxies for TikTok detection avoidance).</p>
+      <ul>
+        <li>Recommended services: <code>Bright Data</code>, <code>Oxylabs</code>, <code>IPRoyal</code></li>
+        <li>Type: <strong>Residential</strong> (not datacenter)</li>
+        <li>Location: match your actual city</li>
+        <li>In Dolphin → Profile → Proxy → paste: <code>host:port:user:password</code></li>
+        <li>Click <strong>Check Proxy</strong> — the correct IP should appear</li>
+      </ul>
+      <div class="callout tip"><strong>Tip:</strong> Mobile proxies are the hardest for TikTok to detect if your budget allows.</div>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">3</span>
+    <div class="step-content">
+      <strong>Create and Configure Browser Profiles</strong>
+      <p>Each profile is a unique digital identity. Configure each one as follows:</p>
+      <ul>
+        <li><strong>Name:</strong> use the account's niche (e.g., "Skincare 35+ Account")</li>
+        <li><strong>OS:</strong> vary between Windows 10 and macOS across profiles</li>
+        <li><strong>Browser:</strong> Chrome (recommended for TikTok)</li>
+        <li><strong>Screen Resolution:</strong> alternate between 1920×1080 and 1366×768</li>
+        <li><strong>Language:</strong> English (US) with timezone America/Chicago</li>
+        <li><strong>WebGL/Canvas:</strong> set to "Noise" — generates a unique fingerprint per profile</li>
+      </ul>
+      <div class="callout"><strong>Golden Rule:</strong> Never open two profiles from the same niche at the same time. Alternate with at least 30 minutes between sessions.</div>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">4</span>
+    <div class="step-content">
+      <strong>Create a TikTok Account Inside the Isolated Profile</strong>
+      <p>With the Dolphin profile open, create the TikTok account as if it were a brand new device:</p>
+      <ul>
+        <li>Go to <code>tiktok.com</code> inside the Dolphin profile</li>
+        <li>Use a different email for each profile — Gmail aliases work: <code>you+account2@gmail.com</code></li>
+        <li>Use a different phone number (or a virtual SMS service like <code>TextNow</code>)</li>
+        <li>Spend the first 3 days consuming niche content only — do not post yet</li>
+        <li>Enable two-factor authentication (2FA) on each account</li>
+      </ul>
+      <div class="callout tip"><strong>Warm-Up Period:</strong> New accounts that post immediately are flagged as suspicious. Consume 30–60 minutes of content per day for 3 days before your first post.</div>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">5</span>
+    <div class="step-content">
+      <strong>Daily Operation Rules</strong>
+      <p>To keep accounts safe long-term, follow these rules every day:</p>
+      <ul>
+        <li>Never copy and paste the same video across accounts — TikTok detects duplicate metadata</li>
+        <li>Each account must have a different niche (skincare, makeup, clean beauty, etc.)</li>
+        <li>Never access an account outside its correct Dolphin profile</li>
+        <li>Save sessions in Dolphin after each use (the "Save Session" button)</li>
+        <li>If an account gets banned, change the proxy first before attempting any recovery</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 3 ═══════════════ -->
+<div class="page-break">
+  <div class="chapter-opener">
+    <p class="ch-num">Chapter 3 · ChatGPT</p>
+    <h2 class="ch-title">ChatGPT as Your Content Co-Creator</h2>
+    <p class="ch-desc">Don't use GPT just to write text. Use it as a co-creator at every stage — from scripting to SEO optimization.</p>
+  </div>
+
+  <h3>Prompt 1 — Generate Hooks for Any Product</h3>
+  <div class="prompt">
+    "Give me 10 opening hooks (first 3 seconds) for a TikTok video about [product name]. Each hook should create curiosity, urgency, or envy. Target audience: women 25–45. Tone: honest, not salesy."
+  </div>
+  <p>Use the hook that feels most natural to you — you are the one recording, so it needs to sound authentic. Test 3 different hooks across different videos and compare watch time in TikTok Analytics.</p>
+
+  <h3>Prompt 2 — Create a 30–60 Second Script</h3>
+  <div class="prompt">
+    "Write a 45-second TikTok script for [product]. Structure: Hook (3s) → Demo/context (20s) → Concrete result (15s) → Simple CTA (5s). Conversational tone, first person, doesn't sound like an ad. Include where to pause and where to show the product on camera."
+  </div>
+
+  <h3>Prompt 3 — Optimized Captions and Descriptions</h3>
+  <p>After recording, use GPT to adapt the script into captions for each platform:</p>
+  <div class="prompt">
+    "Based on this script: [paste script], create: 1) TikTok caption (150 characters + 5 beauty niche hashtags), 2) Instagram Reels caption (300 characters + 3 hashtags), 3) YouTube Shorts title (60 characters, with main keyword), 4) YouTube description (150 characters with natural keywords)."
+  </div>
+
+  <h3>Prompt 4 — Weekly Content Calendar</h3>
+  <div class="prompt">
+    "Create a 7-day content calendar for a beauty TikTok account focused on skincare and affiliates (Ulta, TULA, Amazon). For each day: video type, suggested hook, focal product, which affiliate program to promote, and best posting time. Maximum 2 videos per day."
+  </div>
+
+  <div class="callout note">
+    <strong>Using GPT Effectively</strong>
+    GPT's first draft is rarely perfect. Give it a prompt, read the result, then add: "Make it shorter," "Make the hook more provocative," or "Write it in a more casual voice." The second or third iteration is usually what you will actually record.
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 4 ═══════════════ -->
+<div class="page-break">
+  <div class="chapter-opener">
+    <p class="ch-num">Chapter 4 · Descript</p>
+    <h2 class="ch-title">Produce Professional Video in Descript</h2>
+    <p class="ch-desc">Descript turns video editing into text editing. You record, it transcribes, you delete words — the video cuts automatically with the text.</p>
+  </div>
+
+  <h3>The Workflow</h3>
+  <p><strong>Record</strong> (smartphone or webcam) → <strong>Import</strong> into Descript → <strong>Transcribe</strong> (auto, seconds) → <strong>Edit text</strong> (delete words = cut video) → <strong>Export</strong> MP4 for CapCut</p>
+
+  <div class="step no-break">
+    <span class="step-badge">1</span>
+    <div class="step-content">
+      <strong>Set Up a Project in Descript</strong>
+      <ul>
+        <li>Download Descript at <code>descript.com</code> — free plan includes 1 hour/month; Creator plan is $24/mo for heavy use</li>
+        <li>Create a new <strong>Workspace</strong> (e.g., "Beauty Creator")</li>
+        <li>Click <strong>New Project</strong> → <strong>Video Project</strong></li>
+        <li>Set transcription language to English</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">2</span>
+    <div class="step-content">
+      <strong>Import Your Recorded Video</strong>
+      <ul>
+        <li>Drag your video file (MP4, MOV, any format) into Descript's timeline</li>
+        <li>Wait for auto-transcription — typically 1–2 minutes per minute of video</li>
+        <li>Review the transcript and click any word to correct it</li>
+        <li>The text appears side by side with the video on the timeline</li>
+      </ul>
+      <div class="callout tip"><strong>Recording Tip:</strong> Always record in 1080p with good lighting. Speak at a steady pace — transcription accuracy is higher and auto-cuts are cleaner.</div>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">3</span>
+    <div class="step-content">
+      <strong>Edit by Cutting Text</strong>
+      <ul>
+        <li>Select unnecessary words or phrases → Delete → the video cuts automatically</li>
+        <li>Use <strong>Remove Filler Words</strong> (Edit menu) to delete all "uh," "um," and "like" at once</li>
+        <li>Use <strong>Remove Silences</strong> to cut long pauses automatically</li>
+        <li>To reorder scenes: select a text block → cut and paste it to the new position</li>
+      </ul>
+      <div class="callout tip"><strong>Pro Trick:</strong> Duplicate a project to create 15s, 30s, and 60s versions of the same video. Export three files from one recording session.</div>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">4</span>
+    <div class="step-content">
+      <strong>Export for CapCut</strong>
+      <ul>
+        <li>Click <strong>Export</strong> → <strong>Video</strong></li>
+        <li>Resolution: <strong>1080×1920</strong> (vertical 9:16 for TikTok and Reels)</li>
+        <li>Format: <strong>MP4 H.264</strong></li>
+        <li><strong>Do not</strong> export with burned-in captions yet — CapCut adds styled captions</li>
+        <li>Save with a descriptive filename: <code>tula-serum-review-clean.mp4</code></li>
+      </ul>
+      <div class="callout note"><strong>Optional:</strong> Export the SRT file (captions) via File → Export → Transcript → SRT for use on YouTube.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 5 ═══════════════ -->
+<div class="page-break">
+  <div class="chapter-opener">
+    <p class="ch-num">Chapter 5 · CapCut</p>
+    <h2 class="ch-title">Finish and Publish in CapCut</h2>
+    <p class="ch-desc">CapCut is where the video comes to life visually. Import the clean MP4 from Descript and add captions, music, effects, and publish.</p>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">1</span>
+    <div class="step-content">
+      <strong>Import the Video from Descript</strong>
+      <ul>
+        <li>Open CapCut on mobile or desktop (<code>capcut.com</code>)</li>
+        <li>Tap <strong>+ New Project</strong> → select the MP4 exported from Descript</li>
+        <li>Confirm the ratio: <strong>9:16</strong> (vertical) for TikTok/Reels</li>
+        <li>If recorded horizontally, use <strong>Auto Reframe</strong> — it detects your face and crops automatically</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">2</span>
+    <div class="step-content">
+      <strong>Add Auto-Captions</strong>
+      <ul>
+        <li>In the timeline, tap <strong>Text</strong> → <strong>Auto Captions</strong></li>
+        <li>Select language → click <strong>Start</strong> (takes about 30 seconds)</li>
+        <li>For beauty content: use bold white fonts with black shadow or solid dark background</li>
+        <li>Recommended position: <strong>center-bottom</strong> — does not cover your face</li>
+        <li>Review and correct any product names that were mistranscribed</li>
+      </ul>
+      <div class="callout tip"><strong>Viral Style:</strong> Captions with word-by-word color animation increase watch time by approximately 15%.</div>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">3</span>
+    <div class="step-content">
+      <strong>Add Trending Music or Sound</strong>
+      <ul>
+        <li>Tap <strong>Audio</strong> → <strong>Sounds</strong> → filter by <strong>TikTok Trending</strong></li>
+        <li>Use a sound from the top 20 in the beauty niche</li>
+        <li>Music volume: <strong>10–20%</strong> — your voice is the primary audio</li>
+        <li>For honest review videos, no music at all often converts better</li>
+        <li>For B-roll product videos without voiceover, music can go up to 50–70%</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">4</span>
+    <div class="step-content">
+      <strong>Beauty Effects and Color Grading</strong>
+      <ul>
+        <li><strong>Color:</strong> Filters → "Skin" category → subtle intensity (30–50%)</li>
+        <li><strong>Smoothing:</strong> Effects → Beauty → Skin Smoothing — use at 30% maximum to stay natural</li>
+        <li><strong>LUT:</strong> a neutral or warm filter gives a premium look for skincare content</li>
+        <li><strong>Avoid</strong> filters that warp your face or erase pores — authenticity is your product</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">5</span>
+    <div class="step-content">
+      <strong>Export and Publish</strong>
+      <ul>
+        <li>Click <strong>Export</strong> → Resolution: <strong>1080p</strong>, Frame rate: <strong>30fps</strong></li>
+        <li>Use the <strong>Post to TikTok</strong> option inside CapCut — faster than saving and re-uploading</li>
+        <li>For Instagram Reels: export and upload manually in Instagram</li>
+        <li>For YouTube Shorts: same file, upload via YouTube Studio</li>
+        <li><strong>Important:</strong> do not repost the exact same file to multiple platforms without changes — TikTok penalizes content with other platforms' watermarks</li>
+      </ul>
+      <div class="callout tip"><strong>Hack:</strong> Enable "Remove Watermark" in CapCut before exporting to use the video on Instagram without the CapCut logo.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 6 ═══════════════ -->
+<div class="page-break">
+  <div class="chapter-opener">
+    <p class="ch-num">Chapter 6 · Growth</p>
+    <h2 class="ch-title">Grow to 10K–30K Followers Organically</h2>
+    <p class="ch-desc">Without followers, there are no commissions. This chapter covers the real levers of organic growth on TikTok based on algorithm behavior data.</p>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">1</span>
+    <div class="step-content">
+      <strong>Optimize Your Profile Before Posting</strong>
+      <ul>
+        <li><strong>Photo:</strong> clear face, smiling, good lighting — not a logo or product shot</li>
+        <li><strong>Username:</strong> include your niche (<code>@beautyfinds_nash</code>, <code>@skincarehonest</code>)</li>
+        <li><strong>Bio (80 chars):</strong> niche + benefit + CTA. Example: "Honest Skincare 🔬 | Ulta + Amazon Finds | Link ↓"</li>
+        <li><strong>Link in bio:</strong> use LTK or Linktree with your affiliate links organized by category</li>
+        <li>Connect your Instagram and YouTube to your TikTok profile</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">2</span>
+    <div class="step-content">
+      <strong>Own One Niche Per Account</strong>
+      <p>With multiple accounts via Dolphin Anty, each must have a distinct niche:</p>
+      <ul>
+        <li><strong>Account 1:</strong> Skincare 35+ — TULA, Ulta, anti-aging routines</li>
+        <li><strong>Account 2:</strong> Amazon beauty finds — products under $30 with high search volume</li>
+        <li><strong>Account 3:</strong> Clean Beauty / Natural — Alpyn Beauty, sustainable brands</li>
+        <li><strong>Account 4:</strong> Makeup for deep/dark skin — Sigma Beauty, inclusivity focus</li>
+        <li><strong>Account 5:</strong> Haircare — less saturated than skincare</li>
+      </ul>
+      <div class="callout"><strong>Rule:</strong> Stay in one niche for 30 days without deviating. The algorithm takes 2–3 weeks to understand your content and route it to the right audience.</div>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">3</span>
+    <div class="step-content">
+      <strong>Posting Cadence and Best Times</strong>
+      <ul>
+        <li>Minimum: <strong>1 video per day</strong> for the first 30 days</li>
+        <li>Ideal: <strong>2 videos per day</strong> at different times</li>
+        <li>Morning: <strong>7am–9am</strong> (commuting / coffee)</li>
+        <li>Lunch: <strong>12pm–1pm</strong> (work break)</li>
+        <li>Evening: <strong>7pm–9pm</strong> (highest usage volume)</li>
+        <li>Use TikTok Analytics → Followers → Activity to confirm when your specific audience is online</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">4</span>
+    <div class="step-content">
+      <strong>Engagement in the First 30 Minutes</strong>
+      <p>TikTok's algorithm evaluates early engagement to decide how widely to distribute a video. In the first 30 minutes after posting:</p>
+      <ul>
+        <li>Reply to every comment — even a single emoji counts</li>
+        <li>Pin one of your own comments with a question to drive more replies</li>
+        <li>Share the video to your Instagram Stories</li>
+        <li>Do not edit the caption after posting — TikTok resets distribution when you do</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">5</span>
+    <div class="step-content">
+      <strong>Duets, Stitch, and Trending Sounds</strong>
+      <ul>
+        <li><strong>Stitch:</strong> take viral videos from your niche (10M+ views) and add your opinion — you piggyback on their distribution</li>
+        <li><strong>Duet:</strong> great for reacting to product reviews you also use</li>
+        <li><strong>Trending sounds:</strong> check the "Trends" tab in Creator Center — use audios with a green upward arrow ↑</li>
+        <li>Trending sounds give automatic organic boost even to small accounts</li>
+        <li>Limit Stitches to 2–3 per week — do not replace original content with them</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 7 ═══════════════ -->
+<div class="page-break">
+  <div class="chapter-opener">
+    <p class="ch-num">Chapter 7 · TikTok Shop</p>
+    <h2 class="ch-title">Register and Monetize on TikTok Shop</h2>
+    <p class="ch-desc">TikTok Shop is the fastest available monetization path. Purchases happen inside the app — conversion rates are 3–5× higher than external links.</p>
+  </div>
+
+  <div class="callout note">
+    <strong>Minimum Requirement: 1,000 Followers</strong>
+    Focus on organic growth (Chapter 6) until you reach 1K. With a well-optimized account posting daily, this typically takes 2–4 weeks.
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">1</span>
+    <div class="step-content">
+      <strong>Register as an Affiliate in Creator Center</strong>
+      <ul>
+        <li>Go to <code>creator.tiktok.com</code> → log in with your TikTok account</li>
+        <li>Sidebar → <strong>TikTok Shop</strong> → <strong>Affiliate</strong></li>
+        <li>Click <strong>Apply Now</strong> → fill in: name, address, bank details</li>
+        <li>Approval usually takes 1–3 business days</li>
+        <li>After approval, access <strong>Product Marketplace</strong> to browse products</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">2</span>
+    <div class="step-content">
+      <strong>Choose Products to Promote</strong>
+      <ul>
+        <li>Filter by: <strong>Category: Beauty</strong>, <strong>Commission: 10%+</strong>, <strong>Sales: 100+/month</strong></li>
+        <li>Prioritize products with 4.5★ or higher — they have existing social proof</li>
+        <li>Check if Ulta brands are available on TikTok Shop before creating content</li>
+        <li>Save favorites to <strong>My Selections</strong> for quick access</li>
+      </ul>
+      <div class="callout tip"><strong>Strategy:</strong> Pick 3–5 fixed products and run them for 30 days before switching. Consistency builds product association in your audience's mind.</div>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">3</span>
+    <div class="step-content">
+      <strong>Pin the Product to Your Video</strong>
+      <ul>
+        <li>On TikTok's publish screen, scroll to <strong>Add Link</strong></li>
+        <li>Select <strong>TikTok Shop Product</strong> → search the product by name</li>
+        <li>It appears as an orange button on the video — viewers tap and buy without leaving TikTok</li>
+        <li>Mention it out loud: "tap the product below" or "link is right on the video"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">4</span>
+    <div class="step-content">
+      <strong>Track Commissions and Payment</strong>
+      <ul>
+        <li>Creator Center → TikTok Shop → <strong>My Commissions</strong></li>
+        <li>View: product clicks, orders, conversion rate, amount pending</li>
+        <li>Payment: <strong>weekly</strong>, directly to your registered bank account</li>
+        <li>Holding period: commission is confirmed 7 days after product delivery to the customer</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 8 ═══════════════ -->
+<div class="page-break">
+  <div class="chapter-opener">
+    <p class="ch-num">Chapter 8 · Affiliate Programs</p>
+    <h2 class="ch-title">The 8 Programs — Full Analysis</h2>
+    <p class="ch-desc">Data verified early 2026. Shown with recommended signup order and reasoning.</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Program</th>
+        <th>Commission</th>
+        <th>Platform</th>
+        <th>Cookie</th>
+        <th>Start</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>TikTok Shop</strong><br><small>Native in-app</small></td>
+        <td>10–30%</td>
+        <td>TikTok Native</td>
+        <td>Direct</td>
+        <td><strong>Week 1</strong></td>
+      </tr>
+      <tr>
+        <td><strong>LTK (LikeToKnow)</strong><br><small>Universal storefront</small></td>
+        <td>Varies by brand</td>
+        <td>LTK platform</td>
+        <td>30 days</td>
+        <td><strong>Week 1</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Amazon Associates</strong><br><small>Ulta products available</small></td>
+        <td>1–10%</td>
+        <td>Amazon direct</td>
+        <td>24 hours</td>
+        <td><strong>Week 1</strong></td>
+      </tr>
+      <tr>
+        <td><strong>TULA Skincare</strong><br><small>90-day cookie window</small></td>
+        <td>15–20%</td>
+        <td>Impact.com</td>
+        <td>90 days</td>
+        <td><strong>Week 2</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Alpyn Beauty</strong><br><small>Clean beauty, high commission</small></td>
+        <td>20–25%</td>
+        <td>ShareASale</td>
+        <td>30 days</td>
+        <td><strong>Week 2</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Ulta UBCreates</strong><br><small>Slower approval process</small></td>
+        <td>16%</td>
+        <td>Rakuten / Impact</td>
+        <td>7–30 days</td>
+        <td><strong>Week 3</strong></td>
+      </tr>
+      <tr>
+        <td><strong>CapCut Pro</strong><br><small>Recurring commission</small></td>
+        <td>Up to 35% recurring</td>
+        <td>Impact.com</td>
+        <td>30 days</td>
+        <td><strong>Week 3–4</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Sigma Beauty PRO</strong><br><small>Makeup accounts only</small></td>
+        <td>10% affiliate</td>
+        <td>ShareASale</td>
+        <td>30 days</td>
+        <td><strong>Month 2</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top:20px;">
+    <strong>Sigma Beauty Heads-Up</strong>
+    The advertised 40% is a personal discount for purchasing products — not a commission you receive. The actual affiliate commission is 10%. Still worthwhile for a makeup-focused account because the PRO discount lets you try products at lower cost for tutorials.
+  </div>
+
+  <h3>How to Sign Up — By Platform</h3>
+
+  <h4>Impact.com (TULA, CapCut, Ulta)</h4>
+  <ul>
+    <li>Create one account at <code>impact.com</code> — it covers all programs on the platform</li>
+    <li>After login → <strong>Brands</strong> → search each brand → <strong>Apply</strong></li>
+    <li>Complete your creator profile: follower count, platforms, niche description</li>
+  </ul>
+
+  <h4>ShareASale (Alpyn Beauty, Sigma Beauty)</h4>
+  <ul>
+    <li>Create an account at <code>shareasale.com</code> → Publisher signup</li>
+    <li>Search for the brand in the marketplace → Request to Join</li>
+    <li>Approval typically takes 2–5 business days</li>
+  </ul>
+
+  <h4>LTK / LikeToKnow.it</h4>
+  <ul>
+    <li>Go to <code>ltk.com/become-a-creator</code> → fill out the application form</li>
+    <li>No minimum follower count, but LTK reviews content quality</li>
+    <li>After approval, generate an affiliate link for any beauty product</li>
+  </ul>
+</div>
+
+<!-- ═══════════════ CHAPTER 9 ═══════════════ -->
+<div class="page-break">
+  <div class="chapter-opener">
+    <p class="ch-num">Chapter 9 · Content Structure</p>
+    <h2 class="ch-title">The Content Formula That Converts</h2>
+    <p class="ch-desc">Every successful affiliate video follows the same 4-act structure. No exceptions.</p>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">01</span>
+    <div class="step-content">
+      <strong>HOOK — 0 to 3 Seconds — The Question That Stops the Scroll</strong>
+      <p>If it does not stop the scroll in 3 seconds, the video does not exist for that viewer. Start with conflict, not with an introduction.</p>
+      <ul>
+        <li>"Is this $90 serum actually worth it?" (creates doubt)</li>
+        <li>"I tested the most expensive Sephora product for 30 days…" (builds suspense)</li>
+        <li>"Why is everyone buying this at Ulta right now?" (triggers FOMO)</li>
+        <li>"This product wrecked my skin… in the best way." (unexpected twist)</li>
+      </ul>
+      <div class="callout"><strong>Rule:</strong> Never start with "Hey, how's it going?" or by introducing yourself. The audience wants to know immediately what you have for them — not who you are.</div>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">02</span>
+    <div class="step-content">
+      <strong>DEMO — 3 to 25 Seconds — Real Demonstration</strong>
+      <p>Show application on skin, texture, scent (describe it verbally), consistency. No heavy cuts. No extreme filters. Authenticity is the product.</p>
+      <ul>
+        <li>Before / after in one continuous clip</li>
+        <li>Zoom in on texture and pigmentation</li>
+        <li>Show a genuine, real-time reaction</li>
+        <li>Talk about what you feel, not what the brand's marketing says</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">03</span>
+    <div class="step-content">
+      <strong>PROOF — 25 to 45 Seconds — Concrete Result</strong>
+      <p>Numbers, comparisons, a close-up skin shot, an honest opinion. If it did not work 100%, say so — honesty triples credibility and long-term conversions.</p>
+      <ul>
+        <li>"After 7 days, visibly smaller pores."</li>
+        <li>"Lasted 8 hours without a touch-up — I tested it at work."</li>
+        <li>"I didn't love the packaging, but the product itself…"</li>
+        <li>Mention price and where to buy at this point in the video</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step no-break">
+    <span class="step-badge">04</span>
+    <div class="step-content">
+      <strong>CTA — Last 3 Seconds — One Action, Only One</strong>
+      <p>Two CTAs equal confusion and zero clicks. Choose one platform, one action, one link per video.</p>
+      <ul>
+        <li>"Link in bio — buy directly at Ulta." (Ulta affiliate)</li>
+        <li>"Tap the product below." (TikTok Shop)</li>
+        <li>"Check my LTK — it's in the links." (LTK storefront)</li>
+        <li>"Comment WANT and I'll send you the link." (engagement + link in comments)</li>
+      </ul>
+      <div class="callout tip"><strong>Why "Comment WANT" Works:</strong> Comments trigger the algorithm to distribute more → more people see the video → more potential sales. Use this CTA 2–3 times per week, not every video.</div>
+    </div>
+  </div>
+
+  <div class="formula no-break">
+    <p class="formula-line">Hook that creates doubt</p>
+    <p class="formula-op">+</p>
+    <p class="formula-line">Uncut demo (authenticity)</p>
+    <p class="formula-op">+</p>
+    <p class="formula-line">Specific, real result</p>
+    <p class="formula-op">+</p>
+    <p class="formula-line">One CTA, one action</p>
+    <p class="formula-op">=</p>
+    <p class="formula-result">SALE</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 10 ═══════════════ -->
+<div class="page-break">
+  <div class="chapter-opener">
+    <p class="ch-num">Chapter 10 · SEO</p>
+    <h2 class="ch-title">SEO by Platform</h2>
+    <p class="ch-desc">Each platform has its own search algorithm. The same content must be optimized differently for each one.</p>
+  </div>
+
+  <h3>TikTok SEO</h3>
+  <ul>
+    <li><strong>Spoken keywords:</strong> say the product name and category out loud in the first 10 seconds — TikTok transcribes audio and indexes it for search</li>
+    <li><strong>On-screen text:</strong> put visible keywords in the video (e.g., "TULA Skincare Review")</li>
+    <li><strong>Caption:</strong> first sentence with main keyword as plain text — not a hashtag</li>
+    <li><strong>Hashtags:</strong> 3–5 only — 1 broad (#beauty), 1 niche (#skincaeroutine), 1 specific (#tulareviews)</li>
+    <li><strong>Trending sound:</strong> top-trending audios receive automatic preferential distribution</li>
+    <li><strong>Timing:</strong> post when your audience is most active (Analytics → Followers → Activity)</li>
+  </ul>
+
+  <h3>YouTube SEO</h3>
+  <ul>
+    <li><strong>Title (60 chars max):</strong> main keyword + benefit. Example: "TULA Skincare Honest Review — 30 Days Results"</li>
+    <li><strong>Description:</strong> first 150 characters are indexed — put keyword, product name, and affiliate link here</li>
+    <li><strong>Tags:</strong> 10–15 tags mixing broad ("skincare review") and specific ("tula cleanser review 2026")</li>
+    <li><strong>Chapters:</strong> add timestamps with keywords — they appear as links in Google search results</li>
+    <li><strong>Thumbnail:</strong> your face + high contrast + 3 words maximum (e.g., "WORTH IT?")</li>
+    <li><strong>Shorts:</strong> keyword in title + #Shorts in description + affiliate link in first 3 description links</li>
+  </ul>
+
+  <h3>Instagram SEO</h3>
+  <ul>
+    <li><strong>Display name:</strong> include a keyword in your display name (e.g., "Maria | Skincare Reviews") — it appears in Instagram search results</li>
+    <li><strong>Caption:</strong> Instagram indexes caption text — write naturally but include product name and category</li>
+    <li><strong>Alt text:</strong> on every post, edit the image alt text with descriptive keywords</li>
+    <li><strong>Hashtags:</strong> 3–5 (the current algorithm penalizes the 20–30 hashtag approach)</li>
+    <li><strong>Reels description:</strong> first sentence with keyword — appears in Instagram Search</li>
+    <li><strong>Location:</strong> geotag your city for local and national audience reach</li>
+  </ul>
+
+  <h3>Facebook SEO</h3>
+  <ul>
+    <li><strong>Groups:</strong> highest organic reach on Facebook — join beauty groups and share your videos with context</li>
+    <li><strong>Native upload:</strong> always upload videos directly to Facebook, never as YouTube links — the algorithm strongly favors native content</li>
+    <li><strong>Video title:</strong> treat it like a blog headline — keyword + benefit + action</li>
+    <li><strong>Description:</strong> the first 3 lines appear without clicking "see more" — put your keywords here</li>
+    <li><strong>Page vs. Profile:</strong> create a Creator Page for access to Facebook Insights and greater organic reach</li>
+  </ul>
+
+  <div class="callout note">
+    <strong>Universal Cross-Platform Rule</strong>
+    Same product, described in different ways, with keywords adapted for each platform's algorithm. Never copy and paste the identical caption to TikTok, Instagram, YouTube, and Facebook — each platform maintains its own search index.
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 11 ═══════════════ -->
+<div class="page-break">
+  <div class="chapter-opener">
+    <p class="ch-num">Chapter 11 · Execution</p>
+    <h2 class="ch-title">Your 90-Day Plan</h2>
+    <p class="ch-desc">Exact sequence of actions organized by week. Do not skip phases — each one sets up the next.</p>
+  </div>
+
+  <div class="timeline-item no-break">
+    <div class="tl-badge">1</div>
+    <div class="tl-body">
+      <h4>Week 1 — Complete Setup</h4>
+      <p>Before creating any content, configure your full infrastructure.</p>
+      <ul>
+        <li>Install Dolphin Anty and configure 2–3 profiles with residential proxies</li>
+        <li>Create TikTok accounts inside Dolphin profiles — warm up for 3 days (consume, do not post)</li>
+        <li>Download CapCut (mobile + desktop) and Descript — create test projects to learn the workflow</li>
+        <li>Create accounts on Impact.com, ShareASale, and LTK</li>
+        <li>Apply for: TikTok Shop Affiliate, LTK, and Amazon Associates</li>
+        <li>Define the niche of each account — create optimized bios with keywords</li>
+        <li>Set up your link in bio (LTK or Linktree) with affiliate links organized and ready</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item no-break">
+    <div class="tl-badge">2</div>
+    <div class="tl-body">
+      <h4>Week 2 — First Videos + New Affiliates</h4>
+      <p>Consistent posting begins here. Apply the Hook → Demo → Proof → CTA formula to every video.</p>
+      <ul>
+        <li>Post 1–2 videos per day on each active account with a TikTok Shop product pinned</li>
+        <li>Full workflow: record on smartphone → edit in Descript → finish in CapCut → publish</li>
+        <li>Apply for TULA Skincare (Impact.com) and Alpyn Beauty (ShareASale)</li>
+        <li>Use ChatGPT to generate hooks and scripts — test at least 3 types of openings per week</li>
+        <li>Reply to every comment within the first 30 minutes after each post</li>
+        <li>Do 2 Stitches of viral niche videos during the week</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item no-break">
+    <div class="tl-badge">3</div>
+    <div class="tl-body">
+      <h4>Week 3 — Ulta + CapCut Affiliate</h4>
+      <p>Add the slower-approval programs while your content is already running.</p>
+      <ul>
+        <li>Apply for Ulta UBCreates (Rakuten / Impact) — the process can take 1–2 weeks to complete</li>
+        <li>Apply for CapCut Pro affiliate (Impact.com) — create 1 "how I edit my videos" tutorial</li>
+        <li>Analyze early data: which hook type generated the most watch time? Replicate it</li>
+        <li>Distribute your top-performing videos to Instagram Reels and YouTube Shorts</li>
+        <li>Apply SEO optimization for each platform following Chapter 10</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item no-break">
+    <div class="tl-badge">4</div>
+    <div class="tl-body">
+      <h4>Weeks 4–8 — Consistency and Optimization</h4>
+      <p>The learning phase. Data from weeks 1–3 will tell you exactly what works.</p>
+      <ul>
+        <li>Identify the 3 video formats that converted best → double production of those formats</li>
+        <li>Pause formats that produced no results after 10+ videos</li>
+        <li>Test 1 new product per week on TikTok Shop — retain only the ones that generate sales</li>
+        <li>Reach 1,000 followers on at least 1 account — required for TikTok Shop activation</li>
+        <li>Start a recurring content series ("Weekly Skincare," "Find of the Week") — builds audience loyalty</li>
+        <li>Track conversion data per affiliate program — cut programs that do not convert</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item no-break">
+    <div class="tl-badge">5</div>
+    <div class="tl-body">
+      <h4>Month 2–3 — Scale What Works</h4>
+      <p>Do not scale before you have data. With 30–60 days of results, you know exactly what to amplify.</p>
+      <ul>
+        <li>Apply for Sigma Beauty PRO (ShareASale) on the makeup-focused account when it has traction</li>
+        <li>Increase posting frequency in the best-performing niches</li>
+        <li>Outsource parts of the workflow: thumbnails, basic editing, content calendar (Fiverr freelancers)</li>
+        <li>Negotiate direct brand deals with brands you are already promoting organically</li>
+        <li>Reinvest first commissions into better proxies and additional Dolphin profiles</li>
+        <li>Goal: first recurring passive income from subscription-based affiliates (TULA subscriptions, CapCut Pro)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FINAL PAGE ═══════════════ -->
+<div class="page-break final-page">
+  <div class="big-emoji">💄</div>
+  <h2>You Have the Complete Map.</h2>
+  <p>From Dolphin Anty setup to your first affiliate commission. The system is here — tools, workflow, affiliate programs, content formula, SEO, and a 90-day execution plan.</p>
+  <p style="margin-top:20px;">The only variable left is execution. Execute in order, measure the results, and scale what works.</p>
+  <p style="margin-top:32px;font-size:9pt;color:#999;">Beauty Creator Blueprint · 2026 Edition<br>programatiktok.com</p>
+</div>
+
+<div class="screen-only">
+  To generate the PDF: press <strong>Cmd+P</strong> (Mac) or <strong>Ctrl+P</strong> (Windows) → Destination: <strong>Save as PDF</strong> → Paper size: <strong>Custom 6×9 inches (15.24 × 22.86 cm)</strong> → Margins: <strong>None</strong> (CSS handles margins) → Save.
+</div>
+
+</body>
+</html>
