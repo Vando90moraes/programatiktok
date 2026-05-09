@@ -313,17 +313,71 @@
     }
 
     /* ── Footer ── */
-    footer {
-      text-align: center;
-      padding: 48px 20px 24px;
-      color: var(--muted);
-      font-size: .78rem;
+    .hub-footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.25);
+      padding: 48px 24px 28px;
+      margin-top: 60px;
     }
-    footer a {
+    .hub-footer-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 2fr;
+      gap: 40px;
+      max-width: 880px;
+      margin: 0 auto 32px;
+    }
+    .hub-footer-name {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: var(--text);
+      text-transform: lowercase;
+      margin-bottom: 8px;
+    }
+    .hub-footer-name span { color: var(--pink); }
+    .hub-footer-tag {
+      font-size: .82rem;
       color: var(--muted);
+      line-height: 1.55;
+      max-width: 260px;
+    }
+    .hub-footer-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+    .hub-footer-col h4 {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .hub-footer-col a {
+      display: block;
+      font-size: .86rem;
+      color: var(--text);
       text-decoration: none;
+      margin-bottom: 8px;
+      transition: color .15s;
     }
-    footer a:hover { color: var(--pink-light); }
+    .hub-footer-col a:hover { color: var(--pink-light); }
+    .hub-footer-copy {
+      max-width: 880px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      text-align: center;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+    @media (max-width: 640px) {
+      .hub-footer-inner { grid-template-columns: 1fr; gap: 28px; }
+      .hub-footer-cols { grid-template-columns: 1fr 1fr; gap: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -378,8 +432,32 @@
 
 </div>
 
-<footer>
-  <p>© 2026 programatiktok.com · <a href="/beauty-creator-course">Beauty Creator Blueprint</a> · <a href="/planner">Growth Planner</a></p>
+<footer class="hub-footer">
+  <div class="hub-footer-inner">
+    <div class="hub-footer-brand">
+      <div class="hub-footer-name">programa<span>tiktok</span>.com</div>
+      <p class="hub-footer-tag">Tools and guides for creators monetizing on TikTok.</p>
+    </div>
+    <div class="hub-footer-cols">
+      <div class="hub-footer-col">
+        <h4>Products</h4>
+        <a href="/planner">Growth Planner</a>
+        <a href="/beauty-creator-course">Beauty Blueprint</a>
+      </div>
+      <div class="hub-footer-col">
+        <h4>Company</h4>
+        <a href="/about">About</a>
+        <a href="mailto:hello@programatiktok.com">Contact</a>
+      </div>
+      <div class="hub-footer-col">
+        <h4>Legal</h4>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/refund">Refunds</a>
+      </div>
+    </div>
+  </div>
+  <div class="hub-footer-copy">© 2026 programatiktok.com · All rights reserved</div>
 </footer>
 
 </body>
