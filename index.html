@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Redirect old GitHub Pages traffic to programatiktok.com
+    if (location.hostname === 'vando90moraes.github.io') {
+      var path = location.pathname.replace(/^\/programatiktok/, '') || '/';
+      location.replace('https://programatiktok.com' + path + location.search + location.hash);
+    }
+  </script>
   <title>programatiktok — TikTok Creator Tools & Guides</title>
   <meta name="description" content="Tools and guides for creators who monetize on TikTok. TikTok Growth Planner ($4) and Beauty Creator Blueprint ($12) — affiliate income, TikTok Shop, Dolphin Anty.">
   <meta name="robots" content="index, follow">

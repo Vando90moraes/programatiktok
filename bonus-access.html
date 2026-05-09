@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  if (location.hostname === 'vando90moraes.github.io') {
+    var path = location.pathname.replace(/^\/programatiktok/, '') || '/';
+    location.replace('https://programatiktok.com' + path + location.search + location.hash);
+  }
+</script>
 <title>Your Access Links — Beauty Creator Blueprint</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
